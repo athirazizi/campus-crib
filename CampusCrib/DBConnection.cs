@@ -20,8 +20,10 @@ namespace CampusCrib
         {
             get
             {
-                return Path.Combine(Environment.GetFolderPath(
-                    Environment.SpecialFolder.LocalApplicationData), DatabaseName);
+                var basePath =
+                    Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
+
+                return Path.Combine(basePath, DatabaseName);
             }
         }
     }

@@ -13,6 +13,8 @@ namespace CampusCrib
             MainPage = new NavigationPage(new LoginPage());
         }
 
+        public Hostel selectedHostel = new Hostel();
+
         protected override void OnStart()
         {
         }

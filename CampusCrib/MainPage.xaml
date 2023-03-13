@@ -7,9 +7,11 @@
             android:TabbedPage.ToolbarPlacement="Bottom"
             
             NavigationPage.HasBackButton="False"
-            BarBackgroundColor="#3700B3"
+            BarBackgroundColor="#6200EE"
             SelectedTabColor="White"
-            UnselectedTabColor="LightGray">
+            UnselectedTabColor="LightGray"
+            
+            Title="CampusCrib">
 
     <TabbedPage.ToolbarItems>
         <ToolbarItem x:Name="tbLogout" Text="Logout" Order="Secondary" Clicked="tbLogout_Clicked"/>

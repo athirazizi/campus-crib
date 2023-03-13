@@ -11,5 +11,6 @@ namespace CampusCrib
         [PrimaryKey, AutoIncrement]
         public int HID { get; set; }
         public string Name { get; set; }
+        public string Description { get; set; }
     }
 }

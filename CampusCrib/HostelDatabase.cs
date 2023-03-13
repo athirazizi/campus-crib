@@ -3,6 +3,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Runtime.CompilerServices;
 using System.Text;
 
 namespace CampusCrib
@@ -58,7 +59,7 @@ namespace CampusCrib
 
             var allHostels = DatabaseConnection.Table<Hostel>();
             hostels = new ObservableCollection<Hostel>(allHostels.ToList());
-            return hostels; 
+            return hostels;
         }
 
         public Hostel GetHostelByID(int hid)

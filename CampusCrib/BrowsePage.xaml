@@ -4,9 +4,22 @@
              x:Class="CampusCrib.BrowsePage">
     <ContentPage.Content>
         <StackLayout Margin="10">
-            <Label Text="BrowsePage.xaml"
-                   HorizontalOptions="Center"
-                   VerticalOptions="CenterAndExpand"/>
+            <Entry Text="{Binding SearchTerm}" Placeholder="Search hostels" ClearButtonVisibility="WhileEditing"/>
+            <ListView x:Name="lstvwHostels" 
+                      ItemSelected="lstvwHostels_ItemSelected" 
+                      ItemsSource="{Binding AllHostels}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout>
+                                
+                                <Label Text="{Binding Name}"/>
+                                <Label Text="{Binding Description}"/>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
