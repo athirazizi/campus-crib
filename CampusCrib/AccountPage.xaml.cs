@@ -16,5 +16,10 @@ namespace CampusCrib
         {
             InitializeComponent();
         }
+
+        private void btnLogout_Clicked(object sender, EventArgs e)
+        {
+            Navigation.PopAsync();
+        }
     }
 }
