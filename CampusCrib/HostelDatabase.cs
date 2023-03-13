@@ -58,7 +58,7 @@ namespace CampusCrib
             ObservableCollection<Hostel> hostels;
 
             var allHostels = DatabaseConnection.Table<Hostel>();
-            hostels = new ObservableCollection<Hostel>(allHostels.ToList());
+            hostels = new ObservableCollection<Hostel>(allHostels);
             return hostels;
         }
 

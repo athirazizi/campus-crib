@@ -3,23 +3,40 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Text;
+using SQLite;
 
 namespace CampusCrib
 {
     
     public class AllHostelsVM : INotifyPropertyChanged
     {
-        HostelDatabase newDBInstance;
+
+        // How exactly is this working?
+
+        // What is controlling the quantity of items appearing in the observable collection...
+
+        HostelDatabase HostelDB = new HostelDatabase();
+
+        public ObservableCollection<Hostel> HostelCollection { get; } = 
+        new ObservableCollection<Hostel>();
 
         public AllHostelsVM()
         {
-            newDBInstance = new HostelDatabase();
+            Hostel newHostel= new Hostel();
+            newHostel.Name = "testHostelName";
+            newHostel.Description = "testHostelDesc";
+            HostelDB.AddHostel(newHostel);
 
-            Hostel newHostel = new Hostel();
-            newHostel.Name = "Hotel 0";
-            newHostel.Description = "Hotel 0 Description";
+            List<Hostel> hostelList;
 
-            AllHostels = newDBInstance.GetAllHostel();
+            using (var connection = new SQLiteConnection(DBConnection.DatabasePath, DBConnection.flags))
+            {
+                hostelList = connection.Query<Hostel>("SELECT * FROM Hostel");
+                foreach (var record in hostelList)
+                {
+                    HostelCollection.Add(record);
+                }
+            }
         }
 
         private ObservableCollection<Hostel> allhostels;

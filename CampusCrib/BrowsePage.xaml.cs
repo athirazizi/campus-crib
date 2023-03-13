@@ -12,13 +12,18 @@ namespace CampusCrib
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class BrowsePage : ContentPage
     {
+
+        
         AllHostelsVM allhostelsVM;
+
+        
 
         public BrowsePage()
         {
             InitializeComponent();
             allhostelsVM = new AllHostelsVM();
             BindingContext = allhostelsVM;
+            
         }
 
         private void lstvwHostels_ItemSelected(object sender, SelectedItemChangedEventArgs e)
