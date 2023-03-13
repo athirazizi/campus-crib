@@ -4,8 +4,25 @@
              x:Class="CampusCrib.App">
     <Application.Resources>
         <ResourceDictionary>
-            <Style TargetType="Button">
+            <Style TargetType="Label">
+                <Setter Property="TextColor" Value="Black"/>
+            </Style>
+            
                 
+                
+            <Style TargetType="Button">
+                <Setter Property="HorizontalOptions" Value="Center"/>
+                <Setter Property="CornerRadius" Value="50"/>
+                <Setter Property="BackgroundColor" Value="#03DAC6"/>
+            </Style>
+            
+            <Style TargetType="NavigationPage">
+                <Setter Property="NavigationPage.BarBackgroundColor" Value="#6200EE"/>
+                <Setter Property="BackgroundColor" Value="White"/>
+            </Style>
+
+            <Style TargetType="Frame">
+                <Setter Property="BackgroundColor" Value="#EEEEEE"/>
             </Style>
         </ResourceDictionary>
     </Application.Resources>
