@@ -1,21 +1,22 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="CampusCrib.MainPage">
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+            xmlns:local="clr-namespace:CampusCrib"
+            x:Class="CampusCrib.MainPage"
+            xmlns:android="clr-namespace:Xamarin.Forms.PlatformConfiguration.AndroidSpecific;assembly=Xamarin.Forms.Core"
+            android:TabbedPage.ToolbarPlacement="Bottom"
+            
+            NavigationPage.HasBackButton="False"
+            BarBackgroundColor="#3700B3"
+            SelectedTabColor="White"
+            UnselectedTabColor="LightGray">
 
-    <StackLayout>
-        <Label Text="Start developing RIGHT NOW" FontSize="Title" Padding="30,10,30,10"/>
-        <Label Text="Make changes to your XAML file and save to see your UI update in the running app with XAML Hot Reload. Give it a try!" FontSize="16" Padding="30,0,30,0"/>
-        <Label FontSize="16" Padding="30,24,30,0">
-            <Label.FormattedText>
-                <FormattedString>
-                    <FormattedString.Spans>
-                        <Span Text="Learn more at "/>
-                        <Span Text="https://aka.ms/xamarin-quickstart" FontAttributes="Bold"/>
-                    </FormattedString.Spans>
-                </FormattedString>
-            </Label.FormattedText>
-        </Label>
-    </StackLayout>
-
-</ContentPage>
+    <TabbedPage.ToolbarItems>
+        <ToolbarItem x:Name="tbLogout" Text="Logout" Order="Secondary" Clicked="tbLogout_Clicked"/>
+    </TabbedPage.ToolbarItems>
+    
+    <local:BrowsePage Title="Browse" IconImageSource="home"/>
+    <local:BookingsPage Title="Bookings" IconImageSource="menu_book"/>
+    <local:AccountPage Title="Account" IconImageSource="person"/>
+    
+</TabbedPage>
