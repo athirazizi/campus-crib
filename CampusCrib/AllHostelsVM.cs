@@ -28,30 +28,37 @@ namespace CampusCrib
         public AllHostelsVM()
         {
             source = new List<Hostel>();
-
             sampleData();
-
-            // AllHostels = newDBInstance.GetAllHostel();
         }
 
         void sampleData()
         {
             source.Add(new Hostel
             {
-                Name = "H0 name",
-                Description = "H0 desc"
+                Name = "Bateman House",
+                Description = "Bateman desc",
+                Image0 = "ic_launcher"
             });
 
             source.Add(new Hostel
             {
-                Name = "H1 name",
-                Description = "H1 desc"
+                Name = "Harris House",
+                Description = "Harris desc",
+                Image0 = "ic_launcher"
             });
 
             source.Add(new Hostel
             {
-                Name = "H2 name",
-                Description = "H2 desc"
+                Name = "Caine House",
+                Description = "Caine desc",
+                Image0 = "ic_launcher"
+            });
+
+            source.Add(new Hostel
+            {
+                Name = "Paulley House",
+                Description = "Paulley desc",
+                Image0 = "ic_launcher"
             });
 
             AllHostels = new ObservableCollection<Hostel>(source);

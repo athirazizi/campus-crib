@@ -11,7 +11,7 @@
     <ContentPage.Content>
         <StackLayout Margin="10">
             <Entry Text="{Binding SearchTerm}" 
-                   Placeholder="Search hostels" 
+                   Placeholder="Search hostels..." 
                    ClearButtonVisibility="WhileEditing"
                    FontSize="Small"/>
 
@@ -25,7 +25,12 @@
                                 <Frame Margin="0,0,0,10"
                                        BackgroundColor="#eeeeee">
                                     <StackLayout>
-                                        <Label Text="{Binding Name}"/>
+                                        <Image Source="{Binding Image0}"/>
+                                        
+                                        <Label Text="{Binding Name}" 
+                                               FontSize="Large" 
+                                               FontAttributes="Bold"/>
+                                        
                                         <Label Text="{Binding Description}"/>
                                     </StackLayout>
                                 </Frame>

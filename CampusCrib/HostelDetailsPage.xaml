@@ -5,11 +5,11 @@
              Title="{Binding Name}">
     <ContentPage.Content>
         <StackLayout>
-            <ScrollView Orientation="Horizontal">
+            <ScrollView Orientation="Horizontal" Margin="10">
                 <StackLayout Orientation="Horizontal">
-                    <Label Text="[Image]" FontSize="100"/>
-                    <Label Text="[Image]" FontSize="100"/>
-                    <Label Text="[Image]" FontSize="100"/>
+                    <Image Source="{Binding Image0}" WidthRequest="200"/>
+                    <Image Source="{Binding Image0}" WidthRequest="200"/>
+                    <Image Source="{Binding Image0}" WidthRequest="200"/>
                 </StackLayout>
             </ScrollView>
 
