@@ -6,14 +6,14 @@ namespace CampusCrib
 {
     public partial class App : Application
     {
+        public Hostel selectedHostel = new Hostel();
+
         public App()
         {
             InitializeComponent();
-
-            MainPage = new NavigationPage(new LoginPage());
+            //MainPage = new NavigationPage(new LoginPage());
+            MainPage = new NavigationPage(new MainPage());
         }
-
-        public Hostel selectedHostel = new Hostel();
 
         protected override void OnStart()
         {

@@ -1,18 +1,23 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:local="clr-namespace:CampusCrib"
              x:Class="CampusCrib.BrowsePage">
+
+    <ContentPage.BindingContext>
+        <local:AllHostelsVM/>
+    </ContentPage.BindingContext>
+    
     <ContentPage.Content>
         <StackLayout Margin="10">
             <Entry Text="{Binding SearchTerm}" Placeholder="Search hostels" ClearButtonVisibility="WhileEditing"/>
             <ListView x:Name="lstvwHostels" 
-                      ItemSelected="lstvwHostels_ItemSelected" 
+                      ItemSelected="lstvwHostels_ItemSelected"
                       ItemsSource="{Binding AllHostels}">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
                             <StackLayout>
-                                
                                 <Label Text="{Binding Name}"/>
                                 <Label Text="{Binding Description}"/>
                             </StackLayout>

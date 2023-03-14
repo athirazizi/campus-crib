@@ -9,18 +9,7 @@ namespace CampusCrib
     
     public class AllHostelsVM : INotifyPropertyChanged
     {
-        HostelDatabase newDBInstance;
-
-        public AllHostelsVM()
-        {
-            newDBInstance = new HostelDatabase();
-
-            Hostel newHostel = new Hostel();
-            newHostel.Name = "Hotel 0";
-            newHostel.Description = "Hotel 0 Description";
-
-            AllHostels = newDBInstance.GetAllHostel();
-        }
+        readonly IList<Hostel> source;
 
         private ObservableCollection<Hostel> allhostels;
         public ObservableCollection<Hostel> AllHostels
@@ -34,6 +23,38 @@ namespace CampusCrib
                 allhostels = value;
                 OnPropertyChanged("AllHostels");
             }
+        }
+
+        public AllHostelsVM()
+        {
+            source = new List<Hostel>();
+
+            sampleData();
+
+            // AllHostels = newDBInstance.GetAllHostel();
+        }
+
+        void sampleData()
+        {
+            source.Add(new Hostel
+            {
+                Name = "H0 name",
+                Description = "H0 desc"
+            });
+
+            source.Add(new Hostel
+            {
+                Name = "H1 name",
+                Description = "H1 desc"
+            });
+
+            source.Add(new Hostel
+            {
+                Name = "H2 name",
+                Description = "H2 desc"
+            });
+
+            AllHostels = new ObservableCollection<Hostel>(source);
         }
 
         private string searchterm;
