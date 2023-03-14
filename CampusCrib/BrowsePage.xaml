@@ -10,21 +10,31 @@
     
     <ContentPage.Content>
         <StackLayout Margin="10">
-            <Entry Text="{Binding SearchTerm}" Placeholder="Search hostels" ClearButtonVisibility="WhileEditing"/>
-            <ListView x:Name="lstvwHostels" 
-                      ItemSelected="lstvwHostels_ItemSelected"
-                      ItemsSource="{Binding AllHostels}">
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <ViewCell>
+            <Entry Text="{Binding SearchTerm}" 
+                   Placeholder="Search hostels" 
+                   ClearButtonVisibility="WhileEditing"
+                   FontSize="Small"/>
+
+            <StackLayout>
+                <CollectionView ItemsSource="{Binding AllHostels}"
+                                SelectionMode="Single"
+                                SelectionChanged="CollectionView_SelectionChanged">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
                             <StackLayout>
-                                <Label Text="{Binding Name}"/>
-                                <Label Text="{Binding Description}"/>
+                                <Frame Margin="0,0,0,10"
+                                       BackgroundColor="#eeeeee">
+                                    <StackLayout>
+                                        <Label Text="{Binding Name}"/>
+                                        <Label Text="{Binding Description}"/>
+                                    </StackLayout>
+                                </Frame>
                             </StackLayout>
-                        </ViewCell>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </StackLayout>
+            
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

@@ -18,21 +18,23 @@ namespace CampusCrib
         public BrowsePage()
         {
             InitializeComponent();
-            //lstvwHostels.ItemsSource = HostelDB.GetAllHostel();
         }
 
-        private void lstvwHostels_ItemSelected(object sender, SelectedItemChangedEventArgs e)
+        private void CollectionView_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             App globalref = (App)Application.Current;
 
-            if (e.SelectedItem != null)
+            var hostel = ((CollectionView)sender).SelectedItem as Hostel;
+
+            globalref.selectedHostel = hostel;
+
+            if (hostel == null)
             {
-                globalref.selectedHostel = lstvwHostels.SelectedItem as Hostel;
-
-                ((ListView)sender).SelectedItem = null;
-
-                Navigation.PushAsync(new HostelDetailsPage());
+                return;
             }
+
+            Navigation.PushAsync(new HostelDetailsPage());
+            ((CollectionView)sender).SelectedItem = null;
         }
     }
 }
