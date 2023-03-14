@@ -30,6 +30,8 @@ namespace CampusCrib
                 globalref.selectedHostel = lstvwHostels.SelectedItem as Hostel;
 
                 ((ListView)sender).SelectedItem = null;
+
+                Navigation.PushAsync(new HostelDetailsPage());
             }
         }
     }
