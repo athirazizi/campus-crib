@@ -36,5 +36,7 @@ namespace CampusCrib
             Navigation.PushAsync(new HostelDetailsPage());
             ((CollectionView)sender).SelectedItem = null;
         }
+
+        
     }
 }

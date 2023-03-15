@@ -14,8 +14,8 @@
                    Placeholder="Search hostels..." 
                    ClearButtonVisibility="WhileEditing"
                    FontSize="Small"/>
-
-            <StackLayout>
+            <RefreshView x:Name="myRefreshView" IsRefreshing="False">
+                <StackLayout>
                 <CollectionView ItemsSource="{Binding AllHostels}"
                                 SelectionMode="Single"
                                 SelectionChanged="CollectionView_SelectionChanged">
@@ -39,7 +39,7 @@
                     </CollectionView.ItemTemplate>
                 </CollectionView>
             </StackLayout>
-            
+            </RefreshView>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
