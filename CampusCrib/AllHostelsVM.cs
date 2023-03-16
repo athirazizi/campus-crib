@@ -91,7 +91,7 @@ namespace CampusCrib
                                hostel.Description.ToLower().Contains(searchterm.ToLower())
                                select hostel;
 
-            ObservableCollection<Hostel> hostels = new ObservableCollection<Hostel>(filteredList.ToList());// set the returned collection to listviewAllCustomers= customers;
+            ObservableCollection<Hostel> hostels = new ObservableCollection<Hostel>(filteredList.ToList());// set the returned collection to the filtered hostel list;
 
             AllHostels = hostels;
         }
