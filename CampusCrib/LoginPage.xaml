@@ -5,19 +5,39 @@
              
              NavigationPage.HasNavigationBar="False">
     <ContentPage.Content>
-        <StackLayout VerticalOptions="Center">
-            <Label Text="Welcome to CampusCrib!" HorizontalOptions="Center" FontSize="Large"/>
-            <Frame Margin="30,10,30,10">
-                <StackLayout>
-                    <Entry Placeholder="Username"/>
-                    <Entry Placeholder="Password" IsPassword="True"/>
-                    <Button x:Name="btnLogin" Clicked="btnLogin_Clicked" Text="Login" WidthRequest="300"/>
-                </StackLayout>
-            </Frame>
-            <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
-                <Label Text="Don't have an account?"/>
-                <Label Text="Register here."/>
+        <StackLayout Padding="40" VerticalOptions="Center" HorizontalOptions="FillAndExpand">
+            <Label Text="CampusCrib" FontSize="42" HorizontalTextAlignment="Center" FontAttributes="Bold" 
+               TextColor ="#6200EE" VerticalOptions="Start" />
+            <Image Source="ic_launcher.png" HeightRequest="180" WidthRequest="180" />
+
+            <StackLayout>
+                <Entry x:Name="txtUsername" Placeholder="Enter Your Email Address" TextColor="Black" PlaceholderColor="Gray"/>
+                <Entry x:Name="txtPassword" Placeholder="Enter Your Password" IsPassword="True" TextColor="Black" PlaceholderColor="Gray"/>
             </StackLayout>
+
+            <Button 
+            VerticalOptions="Center"
+            Text="Login"
+            TextColor="White"
+            BackgroundColor="#6200EE"
+            BorderColor="#6200EE"
+            BorderWidth="1.5"
+            CornerRadius="50"
+            Clicked="btnLogin_Clicked"
+            />
+
+            <Label HorizontalOptions="Center" >
+                <Label.FormattedText>
+                    <FormattedString>
+                        <Span Text="Dont Have and Account?" TextColor="Black"/>
+                        <Span Text="Register" TextColor="#6200EE" FontAttributes="Bold" TextDecorations="Underline"/>
+                    </FormattedString>
+                </Label.FormattedText>
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
+                </Label.GestureRecognizers>
+            </Label>
+
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

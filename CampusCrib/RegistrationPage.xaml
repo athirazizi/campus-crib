@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CampusCrib.RegistrationPage">
+    <ContentPage.Content>
+        <StackLayout VerticalOptions="CenterAndExpand" Padding="5">
+            <StackLayout>
+                <Label Text="Registration Form" FontSize="34" FontAttributes="Bold"
+                VerticalOptions="Start" 
+                HorizontalOptions="CenterAndExpand" TextColor="#FF6200EE" />
+            </StackLayout>
+
+            <StackLayout Orientation="Horizontal">
+                <Entry Placeholder="First Name"></Entry>
+                <Entry Placeholder="Last Name"></Entry>
+            </StackLayout>
+            <Entry Placeholder="Email"></Entry>
+            <Entry Placeholder="Password" IsPassword="True"></Entry>
+            <Entry Placeholder="Confirm Password" IsPassword="True"></Entry>
+            <Label Text="Date Of Birth"></Label>
+            <DatePicker></DatePicker>
+            <Label Text="Address"></Label>
+            <Editor></Editor>
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Save Password"></Label>
+                <Switch IsToggled="False"></Switch>
+            </StackLayout>
+            <Button 
+                    Text="Sign Up"
+                    VerticalOptions="Center"
+                    TextColor="White"
+                    BackgroundColor="#6200EE"
+                    BorderColor="#6200EE"
+                    BorderWidth="1.5"
+                    CornerRadius="50" 
+                    Clicked="SignUp_Clicked"
+                    ></Button>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
