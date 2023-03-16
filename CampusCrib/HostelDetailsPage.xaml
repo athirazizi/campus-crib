@@ -14,10 +14,42 @@
             </ScrollView>
 
             <StackLayout Margin="10,0,10,0">
-                <Label Text="{Binding Name}" FontSize="Large" FontAttributes="Bold"/>
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="{Binding Name}" FontSize="Large" FontAttributes="Bold"/>
+                    <Label Text="🌟 4.9" FontSize="Large" FontAttributes="Bold" HorizontalOptions="EndAndExpand"/>
+                </StackLayout>
+
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="🌎"/>
+                    <Label Text="Buckingham"/>
+                </StackLayout>
+
+                <Label Text="Room description" FontSize="Medium" FontAttributes="Bold"/>
+                <Label Text="Bind Room Description"/>
+
+                <Label Text="About" FontSize="Medium" FontAttributes="Bold"/>
                 <Label Text="{Binding Description}"/>
+
+                <Label Text="Location" FontSize="Medium" FontAttributes="Bold"/>
+                <Label Text="Full address"/>
             </StackLayout>
 
+            <StackLayout Orientation="Horizontal" 
+                         VerticalOptions="EndAndExpand"
+                         BackgroundColor="#eeeeee"
+                         Padding="15">
+                                
+                <StackLayout>
+                    <Label Text="From"/>
+                    <Label Text="£130 per week" 
+                           FontSize="Large"
+                           FontAttributes="Bold"/>
+                </StackLayout>
+                <Button x:Name="btnBook" Text="Book hostel"
+                        FontAttributes="Bold"
+                        HorizontalOptions="EndAndExpand"/>
+                
+            </StackLayout>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
