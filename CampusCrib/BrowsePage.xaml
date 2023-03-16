@@ -21,11 +21,12 @@
                     Text="{Binding SearchTerm}"
                     WidthRequest="190" />
                 <Picker
-                    Title="Sort results"
+                    Title="Sort hostels"
                     BackgroundColor="#6200EE"
                     FontSize="Small"
                     HorizontalTextAlignment="Center"
                     ItemsSource="{Binding SortOptionsList}"
+                    SelectedItem="{Binding SelectedOption}"
                     TextColor="White"
                     TitleColor="white"
                     WidthRequest="190" />

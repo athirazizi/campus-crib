@@ -3,23 +3,20 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
-using System.Reflection;
-using System.Text;
 using Xamarin.Essentials;
 
 namespace CampusCrib
 {
-    
     public class BrowsePageVM : INotifyPropertyChanged
     {
-        readonly IList<Hostel> source;
+        private readonly IList<Hostel> source;
         public List<string> SortOptionsList { get; set; }
 
-        // Fixing the user's location to central London for now. Eventually use geolocation for this value  
-        Location userLocation = new Location(51.509865, -0.118092);
-
+        // Fixing the user's location to central London for now. Eventually use geolocation for this value
+        private Location userLocation = new Location(51.509865, -0.118092);
 
         private ObservableCollection<Hostel> allhostels;
+
         public ObservableCollection<Hostel> AllHostels
         {
             get
@@ -40,9 +37,8 @@ namespace CampusCrib
             sampleData();
         }
 
-        void sampleData()
+        private void sampleData()
         {
-
             Hostel hostel1 = new Hostel
             {
                 Name = "Bateman House",
@@ -54,7 +50,6 @@ namespace CampusCrib
             };
             hostel1.Distance = calcDistance(hostel1);
             source.Add(hostel1);
-
 
             Hostel hostel2 = new Hostel
             {
@@ -68,7 +63,6 @@ namespace CampusCrib
             hostel2.Distance = calcDistance(hostel2);
             source.Add(hostel2);
 
-
             Hostel hostel3 = new Hostel
             {
                 Name = "Caine House",
@@ -80,7 +74,6 @@ namespace CampusCrib
             };
             hostel3.Distance = calcDistance(hostel3);
             source.Add(hostel3);
-
 
             Hostel hostel4 = new Hostel
             {
@@ -94,11 +87,11 @@ namespace CampusCrib
             hostel4.Distance = calcDistance(hostel4);
             source.Add(hostel4);
 
-
             AllHostels = new ObservableCollection<Hostel>(source);
         }
 
         private string searchterm;
+
         public string SearchTerm
         {
             get
@@ -115,26 +108,25 @@ namespace CampusCrib
 
         private void Search()
         {
-             var filteredList= from Hostel hostel in source where 
-                               hostel.Name.ToLower().Contains(searchterm.ToLower()) || 
-                               hostel.Description.ToLower().Contains(searchterm.ToLower())
+            var searchedList = from Hostel hostel in source
+                               where
+                              hostel.Name.ToLower().Contains(searchterm.ToLower()) ||
+                              hostel.Description.ToLower().Contains(searchterm.ToLower())
                                select hostel;
 
             // set the returned collection to the filtered hostel list;
-            ObservableCollection<Hostel> hostels = new ObservableCollection<Hostel>(filteredList.ToList());
+            ObservableCollection<Hostel> hostels = new ObservableCollection<Hostel>(searchedList.ToList());
 
             AllHostels = hostels;
         }
 
-
         // Function to get exact distanct between user location and hostel location. 'Driving distance' would be more useful...
         private double calcDistance(Hostel hostel)
         {
-            double dist = Location.CalculateDistance(userLocation,hostel.HostelLocation, DistanceUnits.Miles);
+            double dist = Location.CalculateDistance(userLocation, hostel.HostelLocation, DistanceUnits.Miles);
             dist = Math.Round(dist, 2);
             return dist;
         }
-
 
         // Sorting picker functions
 
@@ -148,16 +140,82 @@ namespace CampusCrib
                 sortoptions.Add("Price High -> Low");
                 sortoptions.Add("Rating Low -> High");
                 sortoptions.Add("Rating High -> Low");
-                sortoptions.Add("Distance Near -> Far");
-                sortoptions.Add("Distance Far -> Near");
+                sortoptions.Add("Distance Closest -> Furthest");
+                sortoptions.Add("Distance Furthest -> Closest");
             }
             return sortoptions;
         }
 
         // Sorting logic goes here. Use onpropertychanged
 
+        private string selectedoption;
+
+        public string SelectedOption
+        {
+            get { return selectedoption; }
+            set
+            {
+                selectedoption = value;
+                OnPropertyChanged("SelectedOption");
+                Sort();
+            }
+        }
+
+        // Sort with LINQ
+        private void Sort()
+        {
+            if (SelectedOption == "Name A -> Z")
+            {
+                var sortedList = new ObservableCollection<Hostel>(source.OrderBy(x => x.Name).ToList());
+
+                AllHostels = sortedList;
+            }
+            else if (SelectedOption == "Name Z -> A")
+            {
+                var sortedList = new ObservableCollection<Hostel>(source.OrderByDescending(x => x.Name).ToList());
+
+                AllHostels = sortedList;
+            }
+            else if (SelectedOption == "Price Low -> High")
+            {
+                var sortedList = new ObservableCollection<Hostel>(source.OrderBy(x => x.PricePerNight).ToList());
+
+                AllHostels = sortedList;
+            }
+            else if (SelectedOption == "Price High -> Low")
+            {
+                var sortedList = new ObservableCollection<Hostel>(source.OrderByDescending(x => x.PricePerNight).ToList());
+
+                AllHostels = sortedList;
+            }
+            else if (SelectedOption == "Rating Low -> High")
+            {
+                var sortedList = new ObservableCollection<Hostel>(source.OrderBy(x => x.Rating).ToList());
+
+                AllHostels = sortedList;
+            }
+            else if (SelectedOption == "Rating Low -> High")
+            {
+                var sortedList = new ObservableCollection<Hostel>(source.OrderByDescending(x => x.Rating).ToList());
+
+                AllHostels = sortedList;
+            }
+            else if (SelectedOption == "Distance Closest -> Furthest")
+            {
+                var sortedList = new ObservableCollection<Hostel>(source.OrderBy(x => x.Distance).ToList());
+
+                AllHostels = sortedList;
+            }
+            else if (SelectedOption == "Distance Furthest -> Closest")
+            {
+                var sortedList = new ObservableCollection<Hostel>(source.OrderByDescending(x => x.Distance).ToList());
+
+                AllHostels = sortedList;
+            }
+        }
 
         public event PropertyChangedEventHandler PropertyChanged;
+
         private void OnPropertyChanged(string propertyName)
         {
             var changed = PropertyChanged;
