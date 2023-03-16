@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
+using System.Reflection;
 using System.Text;
+using Xamarin.Essentials;
 
 namespace CampusCrib
 {
@@ -11,6 +13,11 @@ namespace CampusCrib
     public class AllHostelsVM : INotifyPropertyChanged
     {
         readonly IList<Hostel> source;
+        public List<string> SortOptionsList { get; set; }
+
+        // Fixing the user's location to central London for now. Eventually use geolocation for this value  
+        Location userLocation = new Location(51.509865, -0.118092);
+
 
         private ObservableCollection<Hostel> allhostels;
         public ObservableCollection<Hostel> AllHostels
@@ -29,42 +36,64 @@ namespace CampusCrib
         public AllHostelsVM()
         {
             source = new List<Hostel>();
+            SortOptionsList = GetSortOptions().ToList();
             sampleData();
         }
 
         void sampleData()
         {
-            source.Add(new Hostel
+
+            Hostel hostel1 = new Hostel
             {
                 Name = "Bateman House",
                 Description = "Standard Rooms",
                 Image0 = "bateman",
-                Rating=4.3
-            });
+                Rating = 4.3,
+                PricePerNight = 25,
+                HostelLocation = new Location(51.989440, -0.978940)
+            };
+            hostel1.Distance = calcDistance(hostel1);
+            source.Add(hostel1);
 
-            source.Add(new Hostel
+
+            Hostel hostel2 = new Hostel
             {
                 Name = "Harris House",
                 Description = "Ensuite Rooms",
                 Image0 = "harris",
-                Rating = 4.5
-            });
+                Rating = 4.5,
+                PricePerNight = 25,
+                HostelLocation = new Location(51.989440, -0.978940)
+            };
+            hostel2.Distance = calcDistance(hostel2);
+            source.Add(hostel2);
 
-            source.Add(new Hostel
+
+            Hostel hostel3 = new Hostel
             {
                 Name = "Caine House",
                 Description = "Self Contained,ensuite & standard rooms",
                 Image0 = "Caine",
-                 Rating = 3.9
-            });
+                Rating = 3.9,
+                PricePerNight = 25,
+                HostelLocation = new Location(51.994840, -0.980520)
+            };
+            hostel3.Distance = calcDistance(hostel3);
+            source.Add(hostel3);
 
-            source.Add(new Hostel
+
+            Hostel hostel4 = new Hostel
             {
                 Name = "Paulley House",
                 Description = "Standard Rooms *REFURBISHED 4FT BEDS*",
                 Image0 = "paulley",
-                 Rating = 4.9
-            });
+                Rating = 4.9,
+                PricePerNight = 25,
+                HostelLocation = new Location(51.989440, -0.978940)
+            };
+            hostel4.Distance = calcDistance(hostel4);
+            source.Add(hostel4);
+
 
             AllHostels = new ObservableCollection<Hostel>(source);
         }
@@ -91,10 +120,42 @@ namespace CampusCrib
                                hostel.Description.ToLower().Contains(searchterm.ToLower())
                                select hostel;
 
-            ObservableCollection<Hostel> hostels = new ObservableCollection<Hostel>(filteredList.ToList());// set the returned collection to the filtered hostel list;
+            // set the returned collection to the filtered hostel list;
+            ObservableCollection<Hostel> hostels = new ObservableCollection<Hostel>(filteredList.ToList());
 
             AllHostels = hostels;
         }
+
+
+        // Function to get exact distanct between user location and hostel location. 'Driving distance' would be more useful...
+        private double calcDistance(Hostel hostel)
+        {
+            double dist = Location.CalculateDistance(userLocation,hostel.HostelLocation, DistanceUnits.Miles);
+            dist = Math.Round(dist, 2);
+            return dist;
+        }
+
+
+        // Sorting picker functions
+
+        public List<string> GetSortOptions()
+        {
+            var sortoptions = new List<string>();
+            {
+                sortoptions.Add("Name A -> Z");
+                sortoptions.Add("Name Z -> A");
+                sortoptions.Add("Price Low -> High");
+                sortoptions.Add("Price High -> Low");
+                sortoptions.Add("Rating Low -> High");
+                sortoptions.Add("Rating High -> Low");
+                sortoptions.Add("Distance Near -> Far");
+                sortoptions.Add("Distance Far -> Near");
+            }
+            return sortoptions;
+        }
+
+        // Sorting logic goes here. Use onpropertychanged
+
 
         public event PropertyChangedEventHandler PropertyChanged;
         private void OnPropertyChanged(string propertyName)

@@ -11,16 +11,32 @@
     </ContentPage.BindingContext>
 
     <ContentPage.Content>
+
         <StackLayout Margin="10">
-            <Entry
-                ClearButtonVisibility="WhileEditing"
-                FontSize="Small"
-                Placeholder="Search hostels..."
-                Text="{Binding SearchTerm}" />
+            <StackLayout HorizontalOptions="CenterAndExpand" Orientation="Horizontal">
+                <Entry
+                    ClearButtonVisibility="WhileEditing"
+                    FontSize="Small"
+                    Placeholder="Search hostels..."
+                    Text="{Binding SearchTerm}"
+                    WidthRequest="190" />
+                <Picker
+                    Title="Sort results"
+                    BackgroundColor="#6200EE"
+                    FontSize="Small"
+                    HorizontalTextAlignment="Center"
+                    ItemsSource="{Binding SortOptionsList}"
+                    TextColor="White"
+                    TitleColor="white"
+                    WidthRequest="190" />
+
+            </StackLayout>
+
             <RefreshView
                 x:Name="myRefreshView"
                 IsRefreshing="False"
                 Refreshing="myRefreshView_Refreshing">
+
                 <StackLayout>
                     <CollectionView
                         ItemsSource="{Binding AllHostels}"
@@ -32,12 +48,29 @@
                                     <Frame Margin="0,0,0,10" BackgroundColor="#eeeeee">
                                         <StackLayout>
                                             <Image Source="{Binding Image0}" />
-
-                                            <Label
-                                                FontAttributes="Bold"
-                                                FontSize="Large"
-                                                Text="{Binding Name}" />
-
+                                            <StackLayout Orientation="Horizontal">
+                                                <Label
+                                                    FontAttributes="Bold"
+                                                    FontSize="Large"
+                                                    Text="{Binding Name}" />
+                                                <StackLayout
+                                                    Margin="9"
+                                                    HorizontalOptions="EndAndExpand"
+                                                    Orientation="Horizontal">
+                                                    <Label
+                                                        Padding="0"
+                                                        FontAttributes="Bold"
+                                                        FontSize="Small"
+                                                        Text="{Binding Distance}"
+                                                        TextColor="DarkGreen" />
+                                                    <Label
+                                                        Padding="0"
+                                                        FontAttributes="Bold"
+                                                        FontSize="Small"
+                                                        Text="miles away"
+                                                        TextColor="DarkGreen" />
+                                                </StackLayout>
+                                            </StackLayout>
                                             <Label Text="{Binding Description}" />
                                         </StackLayout>
                                     </Frame>
@@ -46,6 +79,7 @@
                         </CollectionView.ItemTemplate>
                     </CollectionView>
                 </StackLayout>
+
             </RefreshView>
         </StackLayout>
     </ContentPage.Content>

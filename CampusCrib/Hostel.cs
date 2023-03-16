@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using System.Net;
 using System.Security.Cryptography;
 using System.Text;
+using Xamarin.Essentials;
+
 
 namespace CampusCrib
 {
@@ -19,8 +21,15 @@ namespace CampusCrib
         public string Image1 { get; set; }
         public string Image2 { get; set; }
 
-        public double Rating { get; set; }
-    }
+        // Attribute used to calculate hostel distance from user's location
+        public Location HostelLocation { get; set; }
 
-    
+
+        // User should be able to sort collectionviews by these attributes
+        public double Rating { get; set; }
+        public double PricePerNight { get; set; }
+        public double Distance { get; set; }
+
+
+    }
 }
