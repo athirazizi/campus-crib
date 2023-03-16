@@ -29,7 +29,22 @@
                 <Label Text="{Binding Description}"/>
 
                 <Label Text="Room description" FontSize="Medium" FontAttributes="Bold"/>
-                <Label Text="{Binding RoomDescription}"/>
+                <ScrollView Orientation="Horizontal" Margin="10">
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="ᯤᯤ"/>
+                        <Label Text="Free Internet Access"/>
+                        <Label Text="📍"/>
+                        <Label Text="Free WiFi"/>
+                        <Label Text="📍"/>
+                        <Label Text="Heater"/>
+                        <Label Text="📍"/>
+                        <Label Text="Securtiy"/>
+                        <Label Text="📍"/>
+                        <Label Text="Kitchen"/>
+                        <Label Text="📍"/>
+                        <Label Text="Laundry"/>
+                    </StackLayout>
+                </ScrollView>
 
 
                 <Label Text="Location" FontSize="Medium" FontAttributes="Bold"/>
