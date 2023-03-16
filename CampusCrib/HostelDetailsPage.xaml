@@ -16,19 +16,21 @@
             <StackLayout Margin="10,0,10,0">
                 <StackLayout Orientation="Horizontal">
                     <Label Text="{Binding Name}" FontSize="Large" FontAttributes="Bold"/>
-                    <Label Text="🌟 4.9" FontSize="Large" FontAttributes="Bold" HorizontalOptions="EndAndExpand"/>
+                    <Label Text="🌟 4.5" FontSize="Large" FontAttributes="Bold" HorizontalOptions="EndAndExpand"/>
                 </StackLayout>
 
                 <StackLayout Orientation="Horizontal">
-                    <Label Text="🌎"/>
+                    <Label Text="📍"/>
                     <Label Text="Buckingham"/>
                 </StackLayout>
 
-                <Label Text="Room description" FontSize="Medium" FontAttributes="Bold"/>
-                <Label Text="Bind Room Description"/>
-
+               
                 <Label Text="About" FontSize="Medium" FontAttributes="Bold"/>
                 <Label Text="{Binding Description}"/>
+
+                <Label Text="Room description" FontSize="Medium" FontAttributes="Bold"/>
+                <Label Text="{Binding RoomDescription}"/>
+
 
                 <Label Text="Location" FontSize="Medium" FontAttributes="Bold"/>
                 <Label Text="Full address"/>

@@ -37,6 +37,10 @@ namespace CampusCrib
             ((CollectionView)sender).SelectedItem = null;
         }
 
-        
+        private async void myRefreshView_Refreshing(object sender, EventArgs e)
+        {
+            await Task.Delay(500);
+            myRefreshView.IsRefreshing = false;
+        }
     }
 }
