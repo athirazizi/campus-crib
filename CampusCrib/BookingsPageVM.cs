@@ -4,7 +4,7 @@ using System.Text;
 
 namespace CampusCrib
 {
-    internal class AllBookingsDetailsVM
+    internal class BookingsPageVM
     {
     }
 }

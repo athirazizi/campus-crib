@@ -10,7 +10,7 @@ using Xamarin.Essentials;
 namespace CampusCrib
 {
     
-    public class AllHostelsVM : INotifyPropertyChanged
+    public class BrowsePageVM : INotifyPropertyChanged
     {
         readonly IList<Hostel> source;
         public List<string> SortOptionsList { get; set; }
@@ -33,7 +33,7 @@ namespace CampusCrib
             }
         }
 
-        public AllHostelsVM()
+        public BrowsePageVM()
         {
             source = new List<Hostel>();
             SortOptionsList = GetSortOptions().ToList();
