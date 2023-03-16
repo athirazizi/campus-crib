@@ -38,28 +38,32 @@ namespace CampusCrib
             {
                 Name = "Bateman House",
                 Description = "Standard Rooms",
-                Image0 = "bateman"
+                Image0 = "bateman",
+                Rating=4.3
             });
 
             source.Add(new Hostel
             {
                 Name = "Harris House",
                 Description = "Ensuite Rooms",
-                Image0 = "harris"
+                Image0 = "harris",
+                Rating = 4.5
             });
 
             source.Add(new Hostel
             {
                 Name = "Caine House",
                 Description = "Self Contained,ensuite & standard rooms",
-                Image0 = "Caine"
+                Image0 = "Caine",
+                 Rating = 3.9
             });
 
             source.Add(new Hostel
             {
                 Name = "Paulley House",
                 Description = "Standard Rooms *REFURBISHED 4FT BEDS*",
-                Image0 = "paulley"
+                Image0 = "paulley",
+                 Rating = 4.9
             });
 
             AllHostels = new ObservableCollection<Hostel>(source);
