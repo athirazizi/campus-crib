@@ -4,6 +4,7 @@
              x:Class="CampusCrib.BookingsPage">
     <ContentPage.Content>
         <StackLayout Margin="10">
+            <!--  Bookings made by the currently logged in user are displayed on this page -->
             <Label Text="BookingsPage.xaml"
                    HorizontalOptions="CenterAndExpand"
                    VerticalOptions="CenterAndExpand"/>
