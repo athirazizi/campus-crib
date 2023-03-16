@@ -16,7 +16,8 @@
             <StackLayout Margin="10,0,10,0">
                 <StackLayout Orientation="Horizontal">
                     <Label Text="{Binding Name}" FontSize="Large" FontAttributes="Bold"/>
-                    <Label Text="🌟 4.5" FontSize="Large" FontAttributes="Bold" HorizontalOptions="EndAndExpand"/>
+                    <Label Text="🌟" FontSize="Large" FontAttributes="Bold" HorizontalOptions="EndAndExpand"/>
+                    <Label Text="{Binding Rating}" FontSize="Large" FontAttributes="Bold"/>
                 </StackLayout>
 
                 <StackLayout Orientation="Horizontal">
