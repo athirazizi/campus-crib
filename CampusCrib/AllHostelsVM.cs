@@ -62,7 +62,7 @@ namespace CampusCrib
                 Image0 = "paulley"
             });
 
-            AllHostels = new ObservableCollection<Hostel>(source); //* COLLISION OF OVERRIDE WITH THE SEARCH FUNCTION*
+            AllHostels = new ObservableCollection<Hostel>(source);
         }
 
         private string searchterm;
@@ -82,12 +82,14 @@ namespace CampusCrib
 
         private void Search()
         {
-             var filteredList= from Hostel source in AllHostels where 
-                               source.Name.ToLower().Contains(searchterm.ToLower()) || 
-                               source.Description.ToLower().Contains(searchterm.ToLower())
-                               select source;
+             var filteredList= from Hostel hostel in source where 
+                               hostel.Name.ToLower().Contains(searchterm.ToLower()) || 
+                               hostel.Description.ToLower().Contains(searchterm.ToLower())
+                               select hostel;
 
-            AllHostels = new ObservableCollection<Hostel>(filteredList.ToList()); // * NEEDS TO BE OVERLOOKED , Cannot revert back to the original list after search*
+            ObservableCollection<Hostel> hostels = new ObservableCollection<Hostel>(filteredList.ToList());// set the returned collection to listviewAllCustomers= customers;
+
+            AllHostels = hostels;
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

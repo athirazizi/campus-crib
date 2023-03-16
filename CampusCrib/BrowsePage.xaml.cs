@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 using Xamarin.Forms;
@@ -12,8 +9,8 @@ namespace CampusCrib
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class BrowsePage : ContentPage
     {
-        HostelDatabase HostelDB = new HostelDatabase();
-        App globalref = (App)Application.Current;
+        private HostelDatabase HostelDB = new HostelDatabase();
+        private App globalref = (App)Application.Current;
 
         public BrowsePage()
         {
