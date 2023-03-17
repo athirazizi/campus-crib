@@ -6,10 +6,9 @@
              >
     <ContentPage.Content>
         <StackLayout>
-            <StackLayout Margin="10" >
-                <Label Text="Account Page" TextColor="Black"  FontSize="24" Margin="10" FontAttributes="Bold"
-                   HorizontalOptions="Start"/>
 
+            <Label Text="My Account" TextColor="Black"  FontSize="24" Margin="10" FontAttributes="Bold"  HorizontalOptions="Start"/>
+            <StackLayout Margin="10" >
                 <CI:CircleImage WidthRequest="100"
                             HeightRequest="100"
                             Aspect="AspectFit"
@@ -18,55 +17,71 @@
                             Source="User" />
             </StackLayout>
 
+            <Label Text="User-104567f9" TextColor="Black"  FontSize="18" Margin="10"   HorizontalOptions="Start"/>
+
             <StackLayout Margin="10" BackgroundColor="#eeeeee" >
                 <Grid RowDefinitions="Auto,Auto,Auto,Auto,Auto" Padding="10" >
 
                     <Grid  Grid.Row="2" RowDefinitions="Auto,Auto" ColumnDefinitions="*,*,*" RowSpacing="10" ColumnSpacing="10">
+                        <!---Edit Details-->
                         <Frame Grid.Row="0" Grid.Column="0" BackgroundColor="White" HasShadow="True" CornerRadius="10">
                             <Grid RowDefinitions="Auto,Auto" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
-                               
-                                <Label Grid.Row="1" HorizontalOptions="Center" Text="Edit Details" VerticalOptions="Start"  
-               TextColor="#6200EE"></Label>
+                                <Label Text="🖋️" FontSize="34" HorizontalOptions="Center"/>
+                                <Label Grid.Row="1" HorizontalOptions="Center" Text="Edit Details" VerticalOptions="Start"  FontAttributes="Bold"
+               TextColor="Black"></Label>
                             </Grid>
                         </Frame>
+                        <!---My Profile-->
                         <Frame Grid.Row="0" Grid.Column="1" BackgroundColor="White" HasShadow="True" CornerRadius="10">
                             <Grid RowDefinitions="Auto,Auto" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
-                              
-                                <Label Grid.Row="1" HorizontalOptions="Center" Text="My Profile " VerticalOptions="Start"  
-               TextColor="#6200EE"></Label>
+                                <Label Text="👤" FontSize="34" HorizontalOptions="Center"/>
+                                <Label Grid.Row="1" HorizontalOptions="Center" Text="My Profile " VerticalOptions="Start"  FontAttributes="Bold"
+               TextColor="Black"></Label>
                             </Grid>
                         </Frame>
+                        <!---Settings-->
                         <Frame Grid.Row="0" Grid.Column="2" BackgroundColor="White" HasShadow="True" CornerRadius="10">
                             <Grid RowDefinitions="Auto,Auto" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
-                               
-                                <Label Grid.Row="1" HorizontalOptions="Center" Text="Settings" VerticalOptions="Start"  
-               TextColor="#6200EE"></Label>
+                                <Label Text="⚙️" FontSize="34" HorizontalOptions="Center"/>
+                                <Label Grid.Row="1" HorizontalOptions="Center" Text="Settings" VerticalOptions="Start"  FontAttributes="Bold"
+               TextColor="Black"></Label>
                             </Grid>
                         </Frame>
-
+                        <!---Wallets-->
                         <Frame Grid.Row="1" Grid.Column="0" BackgroundColor="White" HasShadow="True" CornerRadius="10">
                             <Grid RowDefinitions="Auto,Auto" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
-                             
-                                <Label Grid.Row="1" HorizontalOptions="Center" Text="Wallet" VerticalOptions="Start"  
-               TextColor="#6200EE"></Label>
+                                <Label Text="💳" FontSize="34" HorizontalOptions="Center"/>
+                                <Label Grid.Row="1" HorizontalOptions="Center" Text="Wallet" VerticalOptions="Start"  FontAttributes="Bold"
+               TextColor="Black"></Label>
                             </Grid>
                         </Frame>
+                        <!---Wishlist-->
                         <Frame Grid.Row="1" Grid.Column="1" BackgroundColor="White" HasShadow="True" CornerRadius="10">
                             <Grid RowDefinitions="Auto,Auto" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
-                               
-                                <Label Grid.Row="1" HorizontalOptions="Center" Text="Wishlist" VerticalOptions="Start"  
-               TextColor="#6200EE"></Label>
+                                <Label Text="📝" FontSize="34" HorizontalOptions="Center"/>
+                                <Label Grid.Row="1" HorizontalOptions="Center" Text="Wishlist" VerticalOptions="Start"  FontAttributes="Bold"
+               TextColor="Black"></Label>
                             </Grid>
                         </Frame>
+                        <!---Travel Stats-->
                         <Frame Grid.Row="1" Grid.Column="2" BackgroundColor="White" HasShadow="True" CornerRadius="10">
                             <Grid RowDefinitions="Auto,Auto" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
-                               
-                                <Label Grid.Row="1" HorizontalOptions="Center" Text="Travel Stats" VerticalOptions="Start"  
-               TextColor="#6200EE"></Label>
+                                <Label Text="✈️" FontSize="34" HorizontalOptions="Center"/>
+                                <Label Grid.Row="1" HorizontalOptions="Center" Text="Travel Stats" VerticalOptions="Start"  FontAttributes="Bold"
+               TextColor="Black"></Label>
                             </Grid>
                         </Frame>
                     </Grid>
                 </Grid>
+                <Button 
+            HorizontalOptions="Start"
+            Text="Begin Exploring"
+            TextColor="White"
+            BackgroundColor="Transparent"
+            BorderColor="White"
+            BorderWidth="1.5"
+            Clicked="Exploring_Clicked"
+            />
             </StackLayout>
         </StackLayout>
     </ContentPage.Content>

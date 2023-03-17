@@ -21,5 +21,10 @@ namespace CampusCrib
         {
             Navigation.PopAsync();
         }
+
+        private void Exploring_Clicked(object sender, EventArgs e)
+        {
+
+        }
     }
 }
