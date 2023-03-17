@@ -1,12 +1,73 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="CampusCrib.AccountPage">
+             x:Class="CampusCrib.AccountPage"
+             xmlns:CI="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin"
+             >
     <ContentPage.Content>
-        <StackLayout Margin="10">
-            <Label Text="AccountPage.xaml"
-                   HorizontalOptions="Center"
-                   VerticalOptions="CenterAndExpand"/>
+        <StackLayout>
+            <StackLayout Margin="10" >
+                <Label Text="Account Page" TextColor="Black"  FontSize="24" Margin="10" FontAttributes="Bold"
+                   HorizontalOptions="Start"/>
+
+                <CI:CircleImage WidthRequest="100"
+                            HeightRequest="100"
+                            Aspect="AspectFit"
+                            BorderColor="Black"
+                            HorizontalOptions="Start"
+                            Source="User" />
+            </StackLayout>
+
+            <StackLayout Margin="10" BackgroundColor="#eeeeee" >
+                <Grid RowDefinitions="Auto,Auto,Auto,Auto,Auto" Padding="10" >
+
+                    <Grid  Grid.Row="2" RowDefinitions="Auto,Auto" ColumnDefinitions="*,*,*" RowSpacing="10" ColumnSpacing="10">
+                        <Frame Grid.Row="0" Grid.Column="0" BackgroundColor="White" HasShadow="True" CornerRadius="10">
+                            <Grid RowDefinitions="Auto,Auto" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+                               
+                                <Label Grid.Row="1" HorizontalOptions="Center" Text="Edit Details" VerticalOptions="Start"  
+               TextColor="#6200EE"></Label>
+                            </Grid>
+                        </Frame>
+                        <Frame Grid.Row="0" Grid.Column="1" BackgroundColor="White" HasShadow="True" CornerRadius="10">
+                            <Grid RowDefinitions="Auto,Auto" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+                              
+                                <Label Grid.Row="1" HorizontalOptions="Center" Text="My Profile " VerticalOptions="Start"  
+               TextColor="#6200EE"></Label>
+                            </Grid>
+                        </Frame>
+                        <Frame Grid.Row="0" Grid.Column="2" BackgroundColor="White" HasShadow="True" CornerRadius="10">
+                            <Grid RowDefinitions="Auto,Auto" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+                               
+                                <Label Grid.Row="1" HorizontalOptions="Center" Text="Settings" VerticalOptions="Start"  
+               TextColor="#6200EE"></Label>
+                            </Grid>
+                        </Frame>
+
+                        <Frame Grid.Row="1" Grid.Column="0" BackgroundColor="White" HasShadow="True" CornerRadius="10">
+                            <Grid RowDefinitions="Auto,Auto" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+                             
+                                <Label Grid.Row="1" HorizontalOptions="Center" Text="Wallet" VerticalOptions="Start"  
+               TextColor="#6200EE"></Label>
+                            </Grid>
+                        </Frame>
+                        <Frame Grid.Row="1" Grid.Column="1" BackgroundColor="White" HasShadow="True" CornerRadius="10">
+                            <Grid RowDefinitions="Auto,Auto" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+                               
+                                <Label Grid.Row="1" HorizontalOptions="Center" Text="Wishlist" VerticalOptions="Start"  
+               TextColor="#6200EE"></Label>
+                            </Grid>
+                        </Frame>
+                        <Frame Grid.Row="1" Grid.Column="2" BackgroundColor="White" HasShadow="True" CornerRadius="10">
+                            <Grid RowDefinitions="Auto,Auto" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+                               
+                                <Label Grid.Row="1" HorizontalOptions="Center" Text="Travel Stats" VerticalOptions="Start"  
+               TextColor="#6200EE"></Label>
+                            </Grid>
+                        </Frame>
+                    </Grid>
+                </Grid>
+            </StackLayout>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
