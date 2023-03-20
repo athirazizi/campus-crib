@@ -73,13 +73,13 @@
                         </Frame>
                     </Grid>
                 </Grid>
-                <Button 
+                <Button Margin="10"
             HorizontalOptions="Start"
             Text="Begin Exploring"
             TextColor="White"
-            BackgroundColor="Transparent"
+          
             BorderColor="White"
-            BorderWidth="1.5"
+            
             Clicked="Exploring_Clicked"
             />
             </StackLayout>
