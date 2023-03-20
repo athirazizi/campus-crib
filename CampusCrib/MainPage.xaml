@@ -19,6 +19,10 @@
     
     <local:BrowsePage Title="Browse" IconImageSource="home"/>
     <local:BookingsPage Title="Bookings" IconImageSource="menu_book"/>
-    <local:AccountPage Title="Account" IconImageSource="person"/>
+    
+    <!-- this is the accounts page, but it remains unimplemented.
+        <local:AccountPage Title="Account" IconImageSource="person"/>
+    -->
+
     
 </TabbedPage>
