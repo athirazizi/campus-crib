@@ -1,11 +1,46 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.ObjectModel;
+using System.ComponentModel;
 
 namespace CampusCrib
 {
     // Bookings made by the currently logged in user are displayed on this page
-    internal class BookingsPageVM
+    public class BookingsPageVM : INotifyPropertyChanged
     {
+        HostelDatabase newDBInstance;
+
+        public BookingsPageVM()
+        {
+            newDBInstance = new HostelDatabase();
+
+            // This will not refresh unless the user logs in and out again, fix this. related to onpropertychanged
+            UserBookings = newDBInstance.GetBookingsByUser();
+        }
+
+        private ObservableCollection<Booking> userbookings;
+
+        public ObservableCollection<Booking> UserBookings
+        {
+            get
+            {
+                return userbookings;
+            }
+
+            set
+            {
+                userbookings = value;
+                OnPropertyChanged("UserBookings");
+            }
+        }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        private void OnPropertyChanged(string propertyname)
+        {
+            var changed = PropertyChanged;
+            if (changed != null)
+            {
+                PropertyChanged(this, new PropertyChangedEventArgs(propertyname));
+            }
+        }
     }
 }

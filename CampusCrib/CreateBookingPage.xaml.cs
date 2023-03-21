@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -10,11 +6,28 @@ using Xamarin.Forms.Xaml;
 namespace CampusCrib
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class Page1 : ContentPage
+    public partial class CreateBookingPage : ContentPage
     {
-        public Page1()
+        CreateBookingPageVM createbookingpagevm;
+
+        public CreateBookingPage()
         {
             InitializeComponent();
+
+            createbookingpagevm = new CreateBookingPageVM();
+            BindingContext = createbookingpagevm;
+        }
+
+        private async void btnCancel_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PopAsync();
+        }
+
+        private async void btnCreate_Clicked(object sender, EventArgs e)
+        {
+            await DisplayAlert("Success", "Booking has been created.", "OK");
+            createbookingpagevm.SaveBooking();
+            await Navigation.PopAsync();
         }
     }
 }

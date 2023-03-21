@@ -1,12 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using SQLite;
 
 namespace CampusCrib
 {
 
-    // User class, utilized in the account page e.g. if the user wants to edit their account details
+    [Table("User")]
     public class User
     {
+        [PrimaryKey, AutoIncrement]
+        public int UID { get; set; }
+        public string Username { get; set; }
+        public string Password { get; set; }
     }
 }

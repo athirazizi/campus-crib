@@ -1,40 +1,68 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="CampusCrib.LoginPage"
-             
-             NavigationPage.HasNavigationBar="False">
+<ContentPage
+    x:Class="CampusCrib.LoginPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    NavigationPage.HasNavigationBar="False">
     <ContentPage.Content>
-        <StackLayout Padding="40" VerticalOptions="Center" HorizontalOptions="FillAndExpand">
-            <Label Text="CampusCrib" FontSize="42" HorizontalTextAlignment="Center" FontAttributes="Bold" 
-               TextColor ="#6200EE" VerticalOptions="Start" />
-            <Image Source="ic_launcher.png" HeightRequest="180" WidthRequest="180" />
+        <StackLayout
+            Padding="40"
+            HorizontalOptions="FillAndExpand"
+            VerticalOptions="Center">
+            <Label
+                FontAttributes="Bold"
+                FontSize="42"
+                HorizontalTextAlignment="Center"
+                Text="CampusCrib"
+                TextColor="#6200EE"
+                VerticalOptions="Start" />
+            <Image
+                HeightRequest="180"
+                Source="ic_launcher.png"
+                WidthRequest="180" />
 
             <StackLayout>
-                <Entry x:Name="txtUsername" Placeholder="Enter Your Email Address" TextColor="Black" PlaceholderColor="Gray"/>
-                <Entry x:Name="txtPassword" Placeholder="Enter Your Password" IsPassword="True" TextColor="Black" PlaceholderColor="Gray"/>
+                <Label
+                    Padding="8"
+                    FontAttributes="Italic"
+                    HorizontalOptions="CenterAndExpand"
+                    Text="Note - 'admin / password' is the default account. " />
+                <Entry
+                    x:Name="txtUsername"
+                    Placeholder="Enter Your Username"
+                    PlaceholderColor="Gray"
+                    TextColor="Black" />
+                <Entry
+                    x:Name="txtPassword"
+                    IsPassword="True"
+                    Placeholder="Enter Your Password"
+                    PlaceholderColor="Gray"
+                    TextColor="Black" />
             </StackLayout>
 
-            <Button 
-            VerticalOptions="Center"
-            Text="Login"
-            TextColor="White"
-            BackgroundColor="#6200EE"
-            BorderColor="#6200EE"
-            BorderWidth="1.5"
-            CornerRadius="50"
-            Clicked="btnLogin_Clicked"
-            />
+            <Button
+                BackgroundColor="#6200EE"
+                BorderColor="#6200EE"
+                BorderWidth="1.5"
+                Clicked="btnLogin_Clicked"
+                CornerRadius="50"
+                Text="Login"
+                TextColor="White"
+                VerticalOptions="Center" />
 
-            <Label HorizontalOptions="Center" >
+            <Label Padding="5" HorizontalOptions="Center">
                 <Label.FormattedText>
                     <FormattedString>
-                        <Span Text="Dont Have and Account?" TextColor="Black"/>
-                        <Span Text="Register" TextColor="#6200EE" FontAttributes="Bold" TextDecorations="Underline"/>
+                        <Span Text="Don't have an account?  " TextColor="Black" />
+                        <Span
+                            FontAttributes="Bold"
+                            Text="Register"
+                            TextColor="#6200EE"
+                            TextDecorations="Underline" />
                     </FormattedString>
                 </Label.FormattedText>
                 <Label.GestureRecognizers>
-                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
+                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" />
                 </Label.GestureRecognizers>
             </Label>
 

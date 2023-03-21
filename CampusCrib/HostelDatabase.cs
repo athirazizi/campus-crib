@@ -1,28 +1,52 @@
-﻿using SQLite;
-using System;
-using System.Collections;
-using System.Collections.Generic;
+﻿using System;
 using System.Collections.ObjectModel;
-using System.Runtime.CompilerServices;
-using System.Text;
+using SQLite;
+using Xamarin.Forms;
 
 namespace CampusCrib
 {
     public class HostelDatabase
     {
         public string CurrentState;
-        static SQLiteConnection DatabaseConnection;
+        private static SQLiteConnection DatabaseConnection;
+        private App globalref = (App)Application.Current;
 
         public HostelDatabase()
         {
+            // Create Hostel table
             try
             {
                 DatabaseConnection = new SQLiteConnection(
                     DBConnection.DatabasePath, DBConnection.flags);
-
                 DatabaseConnection.CreateTable<Hostel>();
+                CurrentState = "Hostel table created";
+            }
+            catch (Exception ex)
+            {
+                CurrentState = ex.Message;
+            }
 
-                CurrentState = "Database and table created";
+            // Create User table
+            try
+            {
+                DatabaseConnection = new SQLiteConnection(
+                    DBConnection.DatabasePath, DBConnection.flags);
+                DatabaseConnection.CreateTable<User>();
+
+                CurrentState = "User table created";
+            }
+            catch (Exception ex)
+            {
+                CurrentState = ex.Message;
+            }
+
+            // Create Bookings table
+            try
+            {
+                DatabaseConnection = new SQLiteConnection(
+                    DBConnection.DatabasePath, DBConnection.flags);
+                DatabaseConnection.CreateTable<Booking>();
+                CurrentState = "Bookings table created";
             }
             catch (Exception ex)
             {
@@ -30,8 +54,49 @@ namespace CampusCrib
             }
         }
 
-        // db utility functions
+        // DB utility functions:
 
+
+        // User table utility functions
+        public int AddUser(User user)
+        {
+            int insertStatus = 0;
+            insertStatus = DatabaseConnection.Insert(user);
+            return insertStatus;
+        }
+
+        public bool CheckLogin(string username, string password)
+        {
+            var exists = DatabaseConnection.Table<User>()
+                 .Where(u => u.Username == username && u.Password == password)
+                .FirstOrDefault();
+
+            if (exists != null)
+            {
+                return true;
+            }
+            else return false;
+        }
+
+        // Booking table util functions
+        public int AddBooking(Booking booking)
+        {
+            int insertStatus = 0;
+            insertStatus = DatabaseConnection.Insert(booking);
+            return insertStatus;
+        }
+
+        public ObservableCollection<Booking> GetBookingsByUser()
+        {
+            ObservableCollection<Booking> bookings;
+
+            var userBookings = DatabaseConnection.Table<Booking>().Where(b => b.BookingUser == globalref.currentUser);
+            bookings = new ObservableCollection<Booking>(userBookings.ToList());
+
+            return bookings;
+        }
+
+        // Hostel table utility functions
         public int AddHostel(Hostel hostel)
         {
             int insertStatus = 0;
@@ -53,7 +118,7 @@ namespace CampusCrib
             return updateStatus;
         }
 
-        public ObservableCollection<Hostel> GetAllHostel() 
+        public ObservableCollection<Hostel> GetAllHostel()
         {
             ObservableCollection<Hostel> hostels;
 

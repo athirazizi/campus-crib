@@ -9,7 +9,12 @@ namespace CampusCrib
 {
     public class BrowsePageVM : INotifyPropertyChanged
     {
+
+
+        // Try and use a hosteldatabase instance instead of this:
         private readonly IList<Hostel> source;
+
+
         public List<string> SortOptionsList { get; set; }
 
         // Fixing the user's location to central London for now. Eventually use geolocation for this value

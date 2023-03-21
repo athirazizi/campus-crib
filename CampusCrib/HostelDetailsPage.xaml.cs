@@ -19,5 +19,10 @@ namespace CampusCrib
             InitializeComponent();
             BindingContext = globalref.selectedHostel;
         }
+
+        private void btnBook_Clicked(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new CreateBookingPage());
+        }
     }
 }

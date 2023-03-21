@@ -1,72 +1,109 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="CampusCrib.HostelDetailsPage"
-             Title="{Binding Name}">
+<ContentPage
+    x:Class="CampusCrib.HostelDetailsPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    Title="{Binding Name}">
     <ContentPage.Content>
         <StackLayout>
-            <ScrollView Orientation="Horizontal" Margin="10">
+            <ScrollView Margin="10" Orientation="Horizontal">
                 <StackLayout Orientation="Horizontal">
-                    <Image Source="{Binding Image0}" WidthRequest="200"/>
-                    <Image Source="{Binding Image0}" WidthRequest="200"/>
-                    <Image Source="{Binding Image0}" WidthRequest="200"/>
+                    <Image Source="{Binding Image0}" WidthRequest="200" />
+                    <Image Source="{Binding Image0}" WidthRequest="200" />
+                    <Image Source="{Binding Image0}" WidthRequest="200" />
                 </StackLayout>
             </ScrollView>
 
             <StackLayout Margin="10,0,10,0">
                 <StackLayout Orientation="Horizontal">
-                    <Label Text="{Binding Name}" FontSize="Large" FontAttributes="Bold"/>
-                    <Label Text="🌟" FontSize="Large" FontAttributes="Bold" HorizontalOptions="EndAndExpand"/>
-                    <Label Text="{Binding Rating}" FontSize="Large" FontAttributes="Bold"/>
+                    <Label
+                        FontAttributes="Bold"
+                        FontSize="Large"
+                        Text="{Binding Name}" />
+                    <Label
+                        FontAttributes="Bold"
+                        FontSize="Large"
+                        HorizontalOptions="EndAndExpand"
+                        Text="🌟" />
+                    <Label
+                        FontAttributes="Bold"
+                        FontSize="Large"
+                        Text="{Binding Rating}" />
                 </StackLayout>
 
                 <StackLayout Orientation="Horizontal">
-                    <Label Text="📍"/>
-                    <Label Text="Buckingham"/>
+                    <Label Text="📍" />
+                    <Label Text="Buckingham" />
                 </StackLayout>
 
-               
-                <Label Text="About" FontSize="Medium" FontAttributes="Bold"/>
-                <Label Text="{Binding Description}"/>
 
-                <Label Text="Room description" FontSize="Medium" FontAttributes="Bold"/>
-                <ScrollView Orientation="Horizontal" Margin="10" HorizontalScrollBarVisibility="Never">
-                    <StackLayout Orientation="Horizontal" >
-                        <Label Text="📶"/>
-                        <Label Text="Free Internet Access"/>
-                        <Label Text="📶"/>
-                        <Label Text="Free WiFi"/>
-                        <Label Text="♨️"/>
-                        <Label Text="Heater"/>
-                        <Label Text="🛡️"/>
-                        <Label Text="Securtiy"/>
-                        <Label Text="🍴"/>
-                        <Label Text="Kitchen"/>
-                        <Label Text="💧"/>
-                        <Label Text="Laundry"/>
+                <Label
+                    FontAttributes="Bold"
+                    FontSize="Medium"
+                    Text="About" />
+                <Label Text="{Binding Description}" />
+
+                <Label
+                    FontAttributes="Bold"
+                    FontSize="Medium"
+                    Text="Room description" />
+                <ScrollView
+                    Margin="10"
+                    HorizontalScrollBarVisibility="Never"
+                    Orientation="Horizontal">
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="📶" />
+                        <Label Text="Free Internet Access" />
+                        <Label Text="📶" />
+                        <Label Text="Free WiFi" />
+                        <Label Text="♨️" />
+                        <Label Text="Heater" />
+                        <Label Text="🛡️" />
+                        <Label Text="Securtiy" />
+                        <Label Text="🍴" />
+                        <Label Text="Kitchen" />
+                        <Label Text="💧" />
+                        <Label Text="Laundry" />
                     </StackLayout>
                 </ScrollView>
 
 
-                <Label Text="Location" FontSize="Medium" FontAttributes="Bold"/>
-                <Label Text="Full address"/>
+                <Label
+                    FontAttributes="Bold"
+                    FontSize="Medium"
+                    Text="Location" />
+                <Label Text="Full address" />
             </StackLayout>
 
-            <StackLayout Orientation="Horizontal" 
-                         VerticalOptions="EndAndExpand"
-                         BackgroundColor="#eeeeee"
-                         Padding="15">
-                                
+            <StackLayout
+                Padding="15"
+                BackgroundColor="#eeeeee"
+                Orientation="Horizontal"
+                VerticalOptions="EndAndExpand">
+
                 <StackLayout>
-                    <Label Text="From"/>
-                    <Label Text="£130 per week" 
-                           FontSize="Large"
-                           FontAttributes="Bold"/>
+                    <Label Text="From" />
+                    <StackLayout Orientation="Horizontal">
+                        <Label
+                            FontAttributes="Bold"
+                            FontSize="Large"
+                            Text="£" />
+                        <Label
+                            FontAttributes="Bold"
+                            FontSize="Large"
+                            Text="{Binding PricePerNight}" />
+                        <Label
+                            FontAttributes="Bold"
+                            FontSize="Large"
+                            Text="per night" />
+                    </StackLayout>
                 </StackLayout>
-                <Button x:Name="btnBook" Text="Book hostel"
-                        FontAttributes="Bold"
-                        HorizontalOptions="EndAndExpand"/>
-                
+                <Button
+                    x:Name="btnBook"
+                    FontAttributes="Bold"
+                    HorizontalOptions="EndAndExpand"
+                    Text="Book hostel" Clicked="btnBook_Clicked"/>
+
             </StackLayout>
         </StackLayout>
     </ContentPage.Content>
