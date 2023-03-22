@@ -11,8 +11,10 @@ namespace CampusCrib
     {
 
 
-        // Try and use a hosteldatabase instance instead of this:
-        private readonly IList<Hostel> source;
+        // List used for searching and sorting
+        private IList<Hostel> source;
+
+        HostelDatabase newDBInstance;
 
 
         public List<string> SortOptionsList { get; set; }
@@ -37,7 +39,6 @@ namespace CampusCrib
 
         public BrowsePageVM()
         {
-            source = new List<Hostel>();
             SortOptionsList = GetSortOptions().ToList();
             sampleData();
         }
@@ -51,10 +52,10 @@ namespace CampusCrib
                 Image0 = "bateman",
                 Rating = 4.3,
                 PricePerNight = 25,
-                HostelLocation = new Location(51.989440, -0.978940)
+                //HostelLocation = new Location(51.989440, -0.978940)
             };
-            hostel1.Distance = calcDistance(hostel1);
-            source.Add(hostel1);
+            //hostel1.Distance = calcDistance(hostel1);
+            
 
             Hostel hostel2 = new Hostel
             {
@@ -63,10 +64,10 @@ namespace CampusCrib
                 Image0 = "harris",
                 Rating = 4.5,
                 PricePerNight = 25,
-                HostelLocation = new Location(51.989440, -0.978940)
+                //HostelLocation = new Location(51.989440, -0.978940)
             };
-            hostel2.Distance = calcDistance(hostel2);
-            source.Add(hostel2);
+            //hostel2.Distance = calcDistance(hostel2);
+            
 
             Hostel hostel3 = new Hostel
             {
@@ -75,10 +76,10 @@ namespace CampusCrib
                 Image0 = "Caine",
                 Rating = 3.9,
                 PricePerNight = 25,
-                HostelLocation = new Location(51.994840, -0.980520)
+                //HostelLocation = new Location(51.994840, -0.980520)
             };
-            hostel3.Distance = calcDistance(hostel3);
-            source.Add(hostel3);
+            //hostel3.Distance = calcDistance(hostel3);
+           
 
             Hostel hostel4 = new Hostel
             {
@@ -87,12 +88,22 @@ namespace CampusCrib
                 Image0 = "paulley",
                 Rating = 4.9,
                 PricePerNight = 25,
-                HostelLocation = new Location(51.989440, -0.978940)
+                //HostelLocation = new Location(51.989440, -0.978940)
             };
-            hostel4.Distance = calcDistance(hostel4);
-            source.Add(hostel4);
+            //hostel4.Distance = calcDistance(hostel4);
 
-            AllHostels = new ObservableCollection<Hostel>(source);
+
+            newDBInstance = new HostelDatabase();
+
+
+            // These only need to be added once:
+            //newDBInstance.AddHostel(hostel1);
+            //newDBInstance.AddHostel(hostel2);
+            //newDBInstance.AddHostel(hostel3);
+            //newDBInstance.AddHostel(hostel4);
+
+            AllHostels = newDBInstance.GetAllHostel();
+            source = newDBInstance.GetAllHostel().ToList(); // Used in searching and sorting
         }
 
         private string searchterm;
@@ -126,12 +137,14 @@ namespace CampusCrib
         }
 
         // Function to get exact distanct between user location and hostel location. 'Driving distance' would be more useful...
-        private double calcDistance(Hostel hostel)
+        /* private double calcDistance(Hostel hostel)
         {
             double dist = Location.CalculateDistance(userLocation, hostel.HostelLocation, DistanceUnits.Miles);
             dist = Math.Round(dist, 2);
             return dist;
         }
+
+        */
 
         // Sorting picker functions
 
@@ -167,6 +180,8 @@ namespace CampusCrib
         }
 
         // Sort with LINQ
+
+
         private void Sort()
         {
             if (SelectedOption == "Name A -> Z")
@@ -218,6 +233,8 @@ namespace CampusCrib
                 AllHostels = sortedList;
             }
         }
+
+
 
         public event PropertyChangedEventHandler PropertyChanged;
 

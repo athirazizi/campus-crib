@@ -8,7 +8,14 @@ namespace CampusCrib
     {
         private App globalref = (App)Application.Current;
 
-        private HostelDatabase newDBInstance;
+        private HostelDatabase newDBInstance = new HostelDatabase();
+
+
+        public CreateBookingPageVM()
+        {
+            LoadHostel();
+        }
+
 
         private DateTime startdate;
 
@@ -40,6 +47,49 @@ namespace CampusCrib
             }
         }
 
+
+        private double price;
+
+        public double Price
+        {
+            get { return price; }
+            set { price = value;
+                OnPropertyChanged("Price");
+            }
+
+        }
+
+        private string hostelname;
+
+        public string HostelName
+        {
+            get { return hostelname; }
+
+            set
+            {
+                hostelname = value;
+                OnPropertyChanged("HostelName");
+            }
+        }
+
+
+
+        // Fetch the details of the chosen hostel
+        public void LoadHostel()
+        {
+            var hid = globalref.selectedHostel.HID;
+            var selectedHostel = newDBInstance.GetHostelByID(hid);
+
+            // Pulling through name and price 
+
+
+            Price = selectedHostel.PricePerNight;
+            HostelName = selectedHostel.Name;
+
+        }
+
+
+
         public void SaveBooking()
         {
             // Need to pull through the selected hostel object
@@ -51,8 +101,8 @@ namespace CampusCrib
             int dur = (EndDate - StartDate).Days;
             newbooking.Duration = dur;
             newbooking.BookingUser = globalref.currentUser;
-            newbooking.BookedHostelName = "PlaceholderName";
-            //newbooking.TotalPrice = HOSTELOBJECT.PricePerDay * dur
+            newbooking.BookedHostelName = HostelName;
+            newbooking.TotalPrice = Price * dur;
 
             newDBInstance = new HostelDatabase();
             newDBInstance.AddBooking(newbooking);

@@ -15,7 +15,7 @@ namespace CampusCrib
 
         public int Duration { get; set; }
 
-        public int TotalPrice { get; set; }
+        public double TotalPrice { get; set; }
 
 
         // Track the date on which the booking was made for display on the 'mybookingspage'

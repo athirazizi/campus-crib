@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Net;
+using System.Runtime.CompilerServices;
 using System.Security.Cryptography;
 using System.Text;
 using Xamarin.Essentials;
@@ -22,7 +23,9 @@ namespace CampusCrib
         public string Image2 { get; set; }
 
         // Attribute used to calculate hostel distance from user's location
-        public Location HostelLocation { get; set; }
+
+        // This does not work with sqlite db
+        //public Location HostelLocation { get; set; }
 
 
         // User should be able to sort collectionviews by these attributes

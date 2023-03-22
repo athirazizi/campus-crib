@@ -25,7 +25,8 @@ namespace CampusCrib
                 Password = "password"
             };
 
-            newDBInstance.AddUser(admin);
+            // Only needs to be added once
+            //newDBInstance.AddUser(admin);
         }
 
         // Track the currently logged in user for booking creation and fetching 'my bookings'

@@ -31,7 +31,10 @@ namespace CampusCrib
             }
 
             Navigation.PushAsync(new HostelDetailsPage());
-            ((CollectionView)sender).SelectedItem = null;
+
+
+            // Let the selected item persist into a new booking being created
+            //((CollectionView)sender).SelectedItem = null;
         }
 
         private async void myRefreshView_Refreshing(object sender, EventArgs e)
