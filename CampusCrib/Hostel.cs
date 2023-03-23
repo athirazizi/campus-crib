@@ -24,8 +24,11 @@ namespace CampusCrib
 
         // Attribute used to calculate hostel distance from user's location
 
-        // This does not work with sqlite db
+        // This does not work with sqlite db, swap to individual lat long values
         //public Location HostelLocation { get; set; }
+
+        public double Latitude { get; set; }
+        public double Longitude { get; set; }
 
 
         // User should be able to sort collectionviews by these attributes

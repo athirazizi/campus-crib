@@ -40,6 +40,7 @@
 
                 <StackLayout>
                     <CollectionView
+                        x:Name="AllHostelsCollection"
                         ItemsSource="{Binding AllHostels}"
                         SelectionChanged="CollectionView_SelectionChanged"
                         SelectionMode="Single">

@@ -52,9 +52,10 @@ namespace CampusCrib
                 Image0 = "bateman",
                 Rating = 4.3,
                 PricePerNight = 25,
-                //HostelLocation = new Location(51.989440, -0.978940)
+                Latitude = 51.989440,
+                Longitude = -0.978940
             };
-            //hostel1.Distance = calcDistance(hostel1);
+            hostel1.Distance = calcDistance(hostel1);
             
 
             Hostel hostel2 = new Hostel
@@ -64,9 +65,10 @@ namespace CampusCrib
                 Image0 = "harris",
                 Rating = 4.5,
                 PricePerNight = 25,
-                //HostelLocation = new Location(51.989440, -0.978940)
+                Latitude = 51.989440, 
+                Longitude = -0.978940
             };
-            //hostel2.Distance = calcDistance(hostel2);
+            hostel2.Distance = calcDistance(hostel2);
             
 
             Hostel hostel3 = new Hostel
@@ -76,9 +78,10 @@ namespace CampusCrib
                 Image0 = "Caine",
                 Rating = 3.9,
                 PricePerNight = 25,
-                //HostelLocation = new Location(51.994840, -0.980520)
+                Latitude = 51.994840, 
+                Longitude = -0.980520
             };
-            //hostel3.Distance = calcDistance(hostel3);
+            hostel3.Distance = calcDistance(hostel3);
            
 
             Hostel hostel4 = new Hostel
@@ -88,9 +91,10 @@ namespace CampusCrib
                 Image0 = "paulley",
                 Rating = 4.9,
                 PricePerNight = 25,
-                //HostelLocation = new Location(51.989440, -0.978940)
+                Latitude = 51.989440, 
+                Longitude = -0.978940
             };
-            //hostel4.Distance = calcDistance(hostel4);
+            hostel4.Distance = calcDistance(hostel4);
 
 
             newDBInstance = new HostelDatabase();
@@ -136,15 +140,18 @@ namespace CampusCrib
             AllHostels = hostels;
         }
 
-        // Function to get exact distanct between user location and hostel location. 'Driving distance' would be more useful...
-        /* private double calcDistance(Hostel hostel)
+
+
+        //Function to get exact distanct between user location and hostel location. 
+        private double calcDistance(Hostel hostel)
         {
-            double dist = Location.CalculateDistance(userLocation, hostel.HostelLocation, DistanceUnits.Miles);
+            var hostellocation = new Location(hostel.Latitude, hostel.Longitude);
+
+            double dist = Location.CalculateDistance(userLocation, hostellocation, DistanceUnits.Miles);
             dist = Math.Round(dist, 2);
             return dist;
         }
 
-        */
 
         // Sorting picker functions
 

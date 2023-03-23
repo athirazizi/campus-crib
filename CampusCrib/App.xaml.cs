@@ -13,8 +13,6 @@ namespace CampusCrib
             //MainPage = new NavigationPage(new MainPage());
 
             // Add default 'admin / password' user account.
-            // This user might be getting duplicated since code runs on every app launch, maybe need validation in the 'AddUser' function
-            // Or maybe this code should be moved somewhere else?
 
             HostelDatabase newDBInstance;
             newDBInstance = new HostelDatabase();
@@ -30,7 +28,7 @@ namespace CampusCrib
         }
 
         // Track the currently logged in user for booking creation and fetching 'my bookings'
-        public string currentUser;
+        public string currentUser = null;
 
         protected override void OnStart()
         {

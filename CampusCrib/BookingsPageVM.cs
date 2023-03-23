@@ -6,13 +6,12 @@ namespace CampusCrib
     // Bookings made by the currently logged in user are displayed on this page
     public class BookingsPageVM : INotifyPropertyChanged
     {
-        HostelDatabase newDBInstance;
+        private HostelDatabase newDBInstance;
 
         public BookingsPageVM()
         {
             newDBInstance = new HostelDatabase();
 
-            // This will not refresh unless the user logs in and out again, fix this. related to onpropertychanged
             UserBookings = newDBInstance.GetBookingsByUser();
         }
 

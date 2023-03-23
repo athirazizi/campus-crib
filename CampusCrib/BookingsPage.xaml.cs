@@ -21,5 +21,8 @@ namespace CampusCrib
             bookingspagevm = new BookingsPageVM();
             BindingContext = bookingspagevm;
         }
+
+        
+
     }
 }

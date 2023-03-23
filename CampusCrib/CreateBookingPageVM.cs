@@ -106,6 +106,8 @@ namespace CampusCrib
 
             newDBInstance = new HostelDatabase();
             newDBInstance.AddBooking(newbooking);
+
+
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

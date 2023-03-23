@@ -13,45 +13,21 @@ namespace CampusCrib
 
         public HostelDatabase()
         {
-            // Create Hostel table
+            // Create required tables
             try
             {
                 DatabaseConnection = new SQLiteConnection(
                     DBConnection.DatabasePath, DBConnection.flags);
                 DatabaseConnection.CreateTable<Hostel>();
-                CurrentState = "Hostel table created";
-            }
-            catch (Exception ex)
-            {
-                CurrentState = ex.Message;
-            }
-
-            // Create User table
-            try
-            {
-                DatabaseConnection = new SQLiteConnection(
-                    DBConnection.DatabasePath, DBConnection.flags);
                 DatabaseConnection.CreateTable<User>();
-
-                CurrentState = "User table created";
-            }
-            catch (Exception ex)
-            {
-                CurrentState = ex.Message;
-            }
-
-            // Create Bookings table
-            try
-            {
-                DatabaseConnection = new SQLiteConnection(
-                    DBConnection.DatabasePath, DBConnection.flags);
                 DatabaseConnection.CreateTable<Booking>();
-                CurrentState = "Bookings table created";
+                CurrentState = "Tables";
             }
             catch (Exception ex)
             {
                 CurrentState = ex.Message;
             }
+
         }
 
         // DB utility functions:

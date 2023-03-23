@@ -15,7 +15,15 @@ namespace CampusCrib
         public BrowsePage()
         {
             InitializeComponent();
+
         }
+
+        protected override void OnAppearing()
+        {
+            // Use xamarin 'onappearing' method to stop selected item persisting on the UI, fixes bug where user cannot view the same item twice in a row
+               AllHostelsCollection.SelectedItem = null;
+        }
+
 
         private void CollectionView_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
@@ -33,7 +41,7 @@ namespace CampusCrib
             Navigation.PushAsync(new HostelDetailsPage());
 
 
-            // Let the selected item persist into a new booking being created
+            // Let the selected item persist in globalref.selecteditem, so details can pass into a new booking being created
             //((CollectionView)sender).SelectedItem = null;
         }
 
