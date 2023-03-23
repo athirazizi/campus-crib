@@ -2,14 +2,62 @@
 <ContentPage
     x:Class="CampusCrib.BookingDetailsPage"
     xmlns="http://xamarin.com/schemas/2014/forms"
-    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
-    <!--  This page will appear when a user clicks an individual booking from their list of bookings, shows the details of their booking  -->
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    Title="View or Update Booking">
     <ContentPage.Content>
+
         <StackLayout>
-            <Label
-                HorizontalOptions="CenterAndExpand"
-                Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" />
+
+            <StackLayout Padding="10" Orientation="Horizontal">
+                <Label FontSize="Medium" Text="Viewing booking for" />
+                <Label
+                    x:Name="hostelLabel"
+                    FontSize="Medium"
+                    Text="{Binding HostelName}" />
+                <Label FontSize="Medium" Text=" :" />
+            </StackLayout>
+
+            <StackLayout>
+                <Label FontSize="Medium" Text="Contact email address:" />
+                <Entry Text="{Binding BookingEmail}" />
+
+                <Label FontSize="Medium" Text="Contact phone number:" />
+                <Entry Text="{Binding BookingPhone}" />
+
+                <Label FontSize="Medium" Text="Start date" />
+                <DatePicker x:Name="pickerStartDate" Date="{Binding StartDate}" />
+
+                <Label FontSize="Medium" Text="End date" />
+                <DatePicker x:Name="pickeEndDate" Date="{Binding EndDate}" />
+            </StackLayout>
+
+            <StackLayout Orientation="Horizontal">
+                <Label FontSize="Medium" Text="Stay duration: " />
+                <Label FontSize="Medium" Text="{Binding Duration}" />
+            </StackLayout>
+
+
+            <StackLayout Orientation="Horizontal">
+                <Label FontSize="Medium" Text="Total booking price: " />
+                <Label FontSize="Medium" Text="{Binding TotalPrice}" />
+            </StackLayout>
+
+
+            <StackLayout HorizontalOptions="CenterAndExpand" Orientation="Horizontal">
+                <Button
+                    x:Name="btnUpdate"
+                    BackgroundColor="Green"
+                    Clicked="btnUpdate_Clicked"
+                    Text="Update with changes" />
+                <Button
+                    x:Name="btnDelete"
+                    BackgroundColor="Red"
+                    Clicked="btnDelete_Clicked"
+                    Text="Delete booking" />
+            </StackLayout>
+
+
+
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

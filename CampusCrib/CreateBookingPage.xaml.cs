@@ -23,15 +23,11 @@ namespace CampusCrib
             await Navigation.PopAsync();
         }
 
-        private async void btnCreate_Clicked(object sender, EventArgs e)
+        private void btnCreate_Clicked(object sender, EventArgs e)
         {
 
             createbookingpagevm.SaveBooking();
 
-            await DisplayAlert("Success", "Booking has been created.", "OK");
- 
-            // Take user back to home, bookings list will be refreshed
-            await Navigation.PushAsync(new MainPage());
         }
     }
 }

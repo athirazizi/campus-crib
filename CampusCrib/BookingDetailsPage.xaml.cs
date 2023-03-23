@@ -12,9 +12,25 @@ namespace CampusCrib
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class BookingDetailsPage : ContentPage
     {
+
+        BookingDetailsPageVM bookingdetailspagevm;
+
         public BookingDetailsPage()
         {
             InitializeComponent();
+
+            bookingdetailspagevm = new BookingDetailsPageVM();
+            BindingContext = bookingdetailspagevm;
+        }
+
+        private void btnUpdate_Clicked(object sender, EventArgs e)
+        {
+            bookingdetailspagevm.UpdateBooking();
+        }
+
+        private void btnDelete_Clicked(object sender, EventArgs e)
+        {
+            bookingdetailspagevm.DeleteBooking();
         }
     }
 }

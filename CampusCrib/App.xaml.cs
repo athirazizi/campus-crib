@@ -5,6 +5,7 @@ namespace CampusCrib
     public partial class App : Application
     {
         public Hostel selectedHostel = new Hostel();
+        public Booking selectedBooking = new Booking();
 
         public App()
         {
@@ -20,15 +21,19 @@ namespace CampusCrib
             var admin = new User
             {
                 Username = "admin",
-                Password = "password"
+                Password = "password",
+                Phone = "1234578",
+                Email = "admin@campuscrib.com"
             };
+
+            
 
             // Only needs to be added once
             //newDBInstance.AddUser(admin);
         }
 
         // Track the currently logged in user for booking creation and fetching 'my bookings'
-        public string currentUser = null;
+        public User currentUser = null;
 
         protected override void OnStart()
         {

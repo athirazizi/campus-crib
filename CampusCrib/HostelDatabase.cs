@@ -32,7 +32,7 @@ namespace CampusCrib
 
         // DB utility functions:
 
-
+ 
         // User table utility functions
         public int AddUser(User user)
         {
@@ -41,7 +41,7 @@ namespace CampusCrib
             return insertStatus;
         }
 
-        public bool CheckLogin(string username, string password)
+        public User CheckLogin(string username, string password)
         {
             var exists = DatabaseConnection.Table<User>()
                  .Where(u => u.Username == username && u.Password == password)
@@ -49,10 +49,12 @@ namespace CampusCrib
 
             if (exists != null)
             {
-                return true;
+                return exists;
             }
-            else return false;
+            else return null;
         }
+
+
 
         // Booking table util functions
         public int AddBooking(Booking booking)
@@ -66,14 +68,38 @@ namespace CampusCrib
         {
             ObservableCollection<Booking> bookings;
 
-            var userBookings = DatabaseConnection.Table<Booking>().Where(b => b.BookingUser == globalref.currentUser);
+            var userBookings = DatabaseConnection.Table<Booking>().Where(b => b.BookingUser == globalref.currentUser.Username);
             bookings = new ObservableCollection<Booking>(userBookings.ToList());
 
             return bookings;
         }
 
-        // Hostel table utility functions
-        public int AddHostel(Hostel hostel)
+        public Booking GetBookingByID(int bookingid)
+        {
+            var booking = DatabaseConnection.Table<Booking>()
+                .Where(b => b.BookingID == bookingid)
+                .FirstOrDefault();
+            return booking;
+        }
+
+
+        public int UpdateBooking(Booking booking)
+        {
+            var updatestatus= DatabaseConnection.Update(booking);
+            return updatestatus;
+        }
+
+
+        public int DeleteBooking(Booking booking)
+        {
+            var delstatus = DatabaseConnection.Delete(booking);
+            return delstatus;
+        }
+       
+
+
+            // Hostel table utility functions
+            public int AddHostel(Hostel hostel)
         {
             int insertStatus = 0;
             insertStatus = DatabaseConnection.Insert(hostel);

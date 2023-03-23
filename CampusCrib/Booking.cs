@@ -1,4 +1,5 @@
 ﻿using System;
+using SQLite;
 
 namespace CampusCrib
 {
@@ -6,8 +7,13 @@ namespace CampusCrib
     // Object created when a user books with 'CreateBookingPage'
     // Bookings will be placed in database table / collectionview?
 
+    [Table("Booking")]
     public class Booking
     {
+
+        [PrimaryKey, AutoIncrement]
+        public int BookingID { get; set; }
+
         // Two dates will need to be chosen with datepicker
         public DateTime StartDate { get; set; }
 
@@ -15,6 +21,8 @@ namespace CampusCrib
 
         public int Duration { get; set; }
 
+
+        public double PricePerNight { get; set; }
         public double TotalPrice { get; set; }
 
 
@@ -26,5 +34,10 @@ namespace CampusCrib
         // Username of the user who placed the booking (get from currently logged in user)
         public string BookingUser { get; set; }
         public string BookedHostelName { get; set; }
+
+
+        // Contact details associated with the booking
+        public string BookingPhone { get; set; }
+        public string BookingEmail { get; set;}
     }
 }

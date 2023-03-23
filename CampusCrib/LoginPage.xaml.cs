@@ -31,9 +31,9 @@ namespace CampusCrib
 
             var checkLogin = newDBInstance.CheckLogin(txtUsername.Text, txtPassword.Text);
 
-            if (checkLogin)
+            if (checkLogin!= null)
             {
-                globalref.currentUser = txtUsername.Text;
+                globalref.currentUser = checkLogin;
                 await Navigation.PushAsync(new MainPage());
             }
 

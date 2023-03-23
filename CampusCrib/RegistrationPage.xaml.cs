@@ -15,7 +15,7 @@ namespace CampusCrib
 
         private async void SignUp_Clicked(object sender, EventArgs e)
         {
-            if (txtPassword.Text == txtConfirmPassword.Text)
+            if (txtPassword.Text == txtConfirmPassword.Text) // Validation - email, phone, username, etc should be mandatory
             {
                 HostelDatabase newDBInstance;
                 newDBInstance = new HostelDatabase();
@@ -24,6 +24,8 @@ namespace CampusCrib
                 {
                     Username = txtUsername.Text,
                     Password = txtPassword.Text,
+                    Email = txtEmail.Text,
+                    Phone = txtPhone.Text
                 };
 
                 newDBInstance.AddUser(newUser);

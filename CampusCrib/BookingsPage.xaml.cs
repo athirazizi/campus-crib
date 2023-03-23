@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-using Xamarin.Forms;
+﻿using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
 namespace CampusCrib
@@ -12,8 +6,7 @@ namespace CampusCrib
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class BookingsPage : ContentPage
     {
-
-        BookingsPageVM bookingspagevm;
+        private BookingsPageVM bookingspagevm;
 
         public BookingsPage()
         {
@@ -22,7 +15,20 @@ namespace CampusCrib
             BindingContext = bookingspagevm;
         }
 
-        
 
+        private void ListView_ItemSelected(object sender, SelectedItemChangedEventArgs e)
+        {
+            App globalref = (App)Application.Current;
+
+            var selectedBooking = ((ListView)sender).SelectedItem as Booking;
+
+            globalref.selectedBooking = selectedBooking;
+
+
+            Navigation.PushAsync(new BookingDetailsPage());
+
+
+            // Need to deselect the item on the UI after this, otherwise it will stick
+        }
     }
 }

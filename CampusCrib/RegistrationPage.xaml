@@ -21,6 +21,7 @@
             </StackLayout>
             <Entry x:Name="txtUsername" Placeholder="Username" />
             <Entry x:Name="txtEmail" Placeholder="Email" />
+            <Entry x:Name="txtPhone" Placeholder="Phone Number" />
             <Entry
                 x:Name="txtPassword"
                 IsPassword="True"

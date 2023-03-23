@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel;
+using System.ComponentModel.Design;
 using Xamarin.Forms;
 
 namespace CampusCrib
@@ -73,18 +74,47 @@ namespace CampusCrib
         }
 
 
+        private string bookingphone;
 
-        // Fetch the details of the chosen hostel
+        public string BookingPhone
+        {
+            get { return bookingphone; }
+
+            set
+            {
+                bookingphone = value;
+                OnPropertyChanged("BookingPhone");
+            }
+        }
+
+
+        private string bookingemail;
+
+        public string BookingEmail
+        {
+            get { return bookingemail; }
+
+            set
+            {
+                bookingemail = value;
+                OnPropertyChanged("BookingEmail");
+            }
+        }
+
+
+
+
+        // Fetch the details of the chosen hostel as well as some details of the User
         public void LoadHostel()
         {
             var hid = globalref.selectedHostel.HID;
             var selectedHostel = newDBInstance.GetHostelByID(hid);
 
-            // Pulling through name and price 
-
 
             Price = selectedHostel.PricePerNight;
             HostelName = selectedHostel.Name;
+            BookingPhone = globalref.currentUser.Phone;
+            BookingEmail = globalref.currentUser.Email;
 
         }
 
@@ -92,20 +122,35 @@ namespace CampusCrib
 
         public void SaveBooking()
         {
-            // Need to pull through the selected hostel object
-            // (In order to set the bookedHostelName, and TotalPrice)
+            // Need to pull through the selected hostel object and validate the user's choices on creation
 
-            Booking newbooking = new Booking();
-            newbooking.StartDate = StartDate;
-            newbooking.EndDate = EndDate;
-            int dur = (EndDate - StartDate).Days;
-            newbooking.Duration = dur;
-            newbooking.BookingUser = globalref.currentUser;
-            newbooking.BookedHostelName = HostelName;
-            newbooking.TotalPrice = Price * dur;
+            if (EndDate > startdate && BookingEmail != "" && BookingPhone != "") {
+                Booking newbooking = new Booking();
+                newbooking.StartDate = StartDate;
+                newbooking.EndDate = EndDate;
+                int dur = (EndDate - StartDate).Days;
+                newbooking.Duration = dur;
+                newbooking.BookingUser = globalref.currentUser.Username;
+                newbooking.BookedHostelName = HostelName;
+                newbooking.TotalPrice = Price * dur;
+                newbooking.BookingEmail = BookingEmail;
+                newbooking.BookingPhone = BookingPhone;
+                newbooking.PricePerNight = globalref.selectedHostel.PricePerNight;
 
-            newDBInstance = new HostelDatabase();
-            newDBInstance.AddBooking(newbooking);
+                newDBInstance = new HostelDatabase();
+                newDBInstance.AddBooking(newbooking);
+
+                Application.Current.MainPage.DisplayAlert("Success", "Booking has been created.", "OK");
+
+                // Take user back to home, bookings list will be refreshed
+                Application.Current.MainPage.Navigation.PushAsync(new MainPage());
+
+            }
+
+            else
+            {
+                Application.Current.MainPage.DisplayAlert("Error", "Dates or contact details are invalid, please try again", "OK");
+            }
 
 
         }

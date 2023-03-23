@@ -9,7 +9,7 @@
         <StackLayout>
 
             <StackLayout Padding="10" Orientation="Horizontal">
-                <Label FontSize="Medium" Text="New booking for " />
+                <Label FontSize="Medium" Text="Create booking for" />
                 <Label
                     x:Name="hostelLabel"
                     FontSize="Medium"
@@ -18,13 +18,18 @@
             </StackLayout>
 
             <StackLayout>
+                <Label FontSize="Medium" Text="Contact email address:" />
+                <Entry Text="{Binding BookingEmail}" />
+
+                <Label FontSize="Medium" Text="Contact phone number:" />
+                <Entry Text="{Binding BookingPhone}" />
+
                 <Label FontSize="Medium" Text="Start date" />
                 <DatePicker x:Name="pickerStartDate" Date="{Binding StartDate}" />
 
                 <Label FontSize="Medium" Text="End date" />
                 <DatePicker x:Name="pickeEndDate" Date="{Binding EndDate}" />
 
-                <Label FontSize="Medium" Text="More fields to come..." />
 
             </StackLayout>
 

@@ -28,7 +28,10 @@
                     </StackLayout>
 
                     <StackLayout>
-                        <ListView ItemsSource="{Binding UserBookings}">
+                        <ListView
+                            x:Name="UserBookingsList"
+                            ItemSelected="ListView_ItemSelected"
+                            ItemsSource="{Binding UserBookings}">
                             <ListView.ItemTemplate>
                                 <DataTemplate>
                                     <ViewCell>
