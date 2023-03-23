@@ -24,9 +24,10 @@ namespace CampusCrib
             return true;
         }
 
-        private void tbLogout_Clicked(object sender, EventArgs e)
+        private async void tbLogout_Clicked(object sender, EventArgs e)
         {
-            Navigation.PopAsync();
+            // Send user back to login page, bugfix for booking page appearing in nav stack
+            await Navigation.PushAsync(new LoginPage());
         }
     }
 }
