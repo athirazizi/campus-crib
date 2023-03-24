@@ -4,23 +4,59 @@
              x:Class="CampusCrib.App">
     <Application.Resources>
         <ResourceDictionary>
-            <Style TargetType="Label">
+            <!-- 2014 Material Design colour palettes-->
+            <!-- https://m1.material.io/style/color.html#color-color-palette -->
+            
+            <!-- Primary colour -->
+            <Color x:Key="Purple500">
+                #6200EE
+            </Color>
+
+            <!-- Secondary colour -->
+            <Color x:Key="Teal200">
+                #03DAC5
+            </Color>
+            
+            <!-- Base colour -->
+            <Color x:Key="Gray50">
+                #FAFAFA
+            </Color>
+
+            <Color x:Key="Gray200">
+                #EEEEEE
+            </Color>
+            
+            <!-- Material design text legibility -->
+            <!-- https://m2.material.io/design/color/text-legibility.html#text-backgrounds -->
+            <Style x:Key="HighEmphasis" TargetType="Label">
                 <Setter Property="TextColor" Value="Black"/>
+                <Setter Property="Opacity" Value="0.87"/>
             </Style>
 
-            <Style TargetType="Button">
-                <Setter Property="HorizontalOptions" Value="Center"/>
-                <Setter Property="CornerRadius" Value="50"/>
-                <Setter Property="BackgroundColor" Value="#03DAC6"/>
+            <Style x:Key="MediumEmphasis" TargetType="Label">
+                <Setter Property="TextColor" Value="Black"/>
+                <Setter Property="Opacity" Value="0.60"/>
             </Style>
 
+            <Style x:Key="Disabled" TargetType="Label">
+                <Setter Property="TextColor" Value="Black"/>
+                <Setter Property="Opacity" Value="0.38"/>
+            </Style>
+            
+            <!-- Material light -->
             <Style TargetType="NavigationPage">
-                <Setter Property="NavigationPage.BarBackgroundColor" Value="#6200EE"/>
-                <Setter Property="BackgroundColor" Value="White"/>
+                <Setter Property="NavigationPage.BarBackgroundColor" Value="{StaticResource Purple500}"/>
+                <Setter Property="BackgroundColor" Value="{StaticResource Gray50}"/>
             </Style>
 
             <Style TargetType="Frame">
-                <Setter Property="BackgroundColor" Value="#EEEEEE"/>
+                <Setter Property="BackgroundColor" Value="{StaticResource Gray200}"/>
+            </Style>
+
+            <Style TargetType="Button">
+                <Setter Property="BackgroundColor" Value="{StaticResource Teal200}"/>
+                <Setter Property="HorizontalOptions" Value="Center"/>
+                <Setter Property="CornerRadius" Value="50"/>
             </Style>
         </ResourceDictionary>
     </Application.Resources>

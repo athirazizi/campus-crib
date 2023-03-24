@@ -58,7 +58,7 @@
                                     </VisualStateManager.VisualStateGroups>
 
 
-                                    <Frame Margin="0,0,0,10" BackgroundColor="#eeeeee">
+                                    <Frame Margin="0,0,0,10">
                                         <StackLayout>
 
                                             <Image Source="{Binding Image0}" />

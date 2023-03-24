@@ -4,68 +4,58 @@
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     NavigationPage.HasNavigationBar="False">
+    
     <ContentPage.Content>
-        <StackLayout
-            Padding="40"
-            HorizontalOptions="FillAndExpand"
-            VerticalOptions="Center">
-            <Label
-                FontAttributes="Bold"
-                FontSize="42"
-                HorizontalTextAlignment="Center"
-                Text="CampusCrib"
-                TextColor="#6200EE"
-                VerticalOptions="Start" />
-            <Image
-                HeightRequest="180"
-                Source="ic_launcher.png"
-                WidthRequest="180" />
+        <StackLayout Padding="30" 
+                     HorizontalOptions="FillAndExpand" 
+                     VerticalOptions="Center">
 
-            <StackLayout>
-                <Label
-                    Padding="8"
-                    FontAttributes="Italic"
-                    HorizontalOptions="CenterAndExpand"
-                    Text="Note - 'admin / password' is the default account. " />
-                <Entry
-                    x:Name="txtUsername"
-                    Placeholder="Enter Your Username"
-                    PlaceholderColor="Gray"
-                    TextColor="Black" />
-                <Entry
-                    x:Name="txtPassword"
-                    IsPassword="True"
-                    Placeholder="Enter Your Password"
-                    PlaceholderColor="Gray"
-                    TextColor="Black" />
-            </StackLayout>
+            <Image Source="ic_launcher.png"/>
+            
+            <Label Text="CampusCrib"
+                   TextColor="{StaticResource Purple500}"
+                   FontAttributes="Bold"
+                   FontSize="40"
+                   HorizontalOptions="Center"/>
 
-            <Button
-                BackgroundColor="#6200EE"
-                BorderColor="#6200EE"
-                BorderWidth="1.5"
-                Clicked="btnLogin_Clicked"
-                CornerRadius="50"
-                Text="Login"
-                TextColor="White"
-                VerticalOptions="Center" />
+            <Frame Margin="0,30,0,30">
+                <StackLayout>
+                    <Entry x:Name="txtUsername" 
+                           Placeholder="Enter your username"/>
 
-            <Label Padding="5" HorizontalOptions="Center">
+                    <Entry x:Name="txtPassword"
+                           Placeholder="Enter your password"
+                           IsPassword="True"/>
+
+                    <Button Clicked="btnLogin_Clicked"
+                            Text="Login"
+                            HorizontalOptions="FillAndExpand"/>
+                </StackLayout>
+            </Frame>
+
+            <Label HorizontalOptions="Center">
+                
                 <Label.FormattedText>
                     <FormattedString>
-                        <Span Text="Don't have an account?  " TextColor="Black" />
-                        <Span
-                            FontAttributes="Bold"
-                            Text="Register"
-                            TextColor="#6200EE"
-                            TextDecorations="Underline" />
+                        <Span Text="Don't have an account? "
+                              TextColor="#646464"/>
+
+                        <Span Text="Register here."
+                              FontAttributes="Bold" 
+                              TextColor="{StaticResource Purple500}"
+                              TextDecorations="Underline"/>
                     </FormattedString>
                 </Label.FormattedText>
+                
                 <Label.GestureRecognizers>
-                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" />
+                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
                 </Label.GestureRecognizers>
+                
             </Label>
 
+            <Label Margin="0,20,0,0" Text="Note - 'admin / password' are the default credentials."
+                   Style="{StaticResource Disabled}"/>
+            
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
