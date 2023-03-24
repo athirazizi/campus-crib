@@ -25,12 +25,13 @@
                 <Entry Text="{Binding BookingPhone}" />
 
                 <Label FontSize="Medium" Text="Start date" />
-                <DatePicker x:Name="pickerStartDate" Date="{Binding StartDate}" />
+                <!--  date format is MM/DD/YY -->
+                <DatePicker x:Name="pickerStartDate" Date="{Binding StartDate}" MinimumDate="01/01/2020" MaximumDate="12/31/2022"/>
 
                 <Label FontSize="Medium" Text="End date" />
-                <DatePicker x:Name="pickeEndDate" Date="{Binding EndDate}" />
+                <DatePicker x:Name="pickeEndDate" Date="{Binding EndDate}" MinimumDate="01/01/2022" MaximumDate="12/31/2024"/>
 
-
+                
             </StackLayout>
 
             <StackLayout HorizontalOptions="CenterAndExpand" Orientation="Horizontal">

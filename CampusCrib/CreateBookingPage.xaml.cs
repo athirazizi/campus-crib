@@ -25,7 +25,7 @@ namespace CampusCrib
 
         private void btnCreate_Clicked(object sender, EventArgs e)
         {
-
+            // save the booking
             createbookingpagevm.SaveBooking();
 
         }

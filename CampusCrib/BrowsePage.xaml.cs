@@ -11,11 +11,12 @@ namespace CampusCrib
     {
         private HostelDatabase HostelDB = new HostelDatabase();
         private App globalref = (App)Application.Current;
+        private BrowsePageVM browsepagevm = new BrowsePageVM(); 
 
         public BrowsePage()
         {
             InitializeComponent();
-
+            BindingContext = browsepagevm;
         }
 
         protected override void OnAppearing()

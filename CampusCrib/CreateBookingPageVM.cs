@@ -7,7 +7,7 @@ namespace CampusCrib
 {
     public class CreateBookingPageVM : INotifyPropertyChanged
     {
-        private App globalref = (App)Application.Current;
+        public App globalref = (App)Application.Current;
 
         private HostelDatabase newDBInstance = new HostelDatabase();
 
@@ -107,6 +107,7 @@ namespace CampusCrib
         // Fetch the details of the chosen hostel as well as some details of the User
         public void LoadHostel()
         {
+            // 
             var hid = globalref.selectedHostel.HID;
             var selectedHostel = newDBInstance.GetHostelByID(hid);
 
@@ -122,6 +123,7 @@ namespace CampusCrib
 
         public void SaveBooking()
         {
+
             // Need to pull through the selected hostel object and validate the user's choices on creation
 
             if (EndDate > startdate && BookingEmail != "" && BookingPhone != "") {
@@ -132,9 +134,10 @@ namespace CampusCrib
                 newbooking.Duration = dur;
                 newbooking.BookingUser = globalref.currentUser.Username;
                 newbooking.BookedHostelName = HostelName;
-                newbooking.TotalPrice = Price * dur;
+                newbooking.TotalPrice = globalref.selectedHostel.PricePerNight * dur;
                 newbooking.BookingEmail = BookingEmail;
                 newbooking.BookingPhone = BookingPhone;
+
                 newbooking.PricePerNight = globalref.selectedHostel.PricePerNight;
 
                 newDBInstance = new HostelDatabase();

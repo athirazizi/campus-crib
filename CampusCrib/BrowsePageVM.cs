@@ -101,10 +101,16 @@ namespace CampusCrib
 
 
             // These only need to be added once:
-            //newDBInstance.AddHostel(hostel1);
-            //newDBInstance.AddHostel(hostel2);
-            //newDBInstance.AddHostel(hostel3);
-            //newDBInstance.AddHostel(hostel4);
+
+            // if there is nothing in the table, add hostels to the table
+
+            if (newDBInstance.GetAllHostel().Count() == 0)
+            {
+                newDBInstance.AddHostel(hostel1);
+                newDBInstance.AddHostel(hostel2);
+                newDBInstance.AddHostel(hostel3);
+                newDBInstance.AddHostel(hostel4);
+            }
 
             AllHostels = newDBInstance.GetAllHostel();
             source = newDBInstance.GetAllHostel().ToList(); // Used in searching and sorting

@@ -46,7 +46,7 @@
                 <Label
                     FontAttributes="Bold"
                     FontSize="Medium"
-                    Text="Room description" />
+                    Text="Room features" />
                 <ScrollView
                     Margin="10"
                     HorizontalScrollBarVisibility="Never"
@@ -72,7 +72,9 @@
                     FontAttributes="Bold"
                     FontSize="Medium"
                     Text="Location" />
-                <Label Text="Full address" />
+                <Label Text="University of Buckingham"/>
+                <Label Text="Verney Park Campus"/>
+                <Label Text="MK18 1AD"/>
             </StackLayout>
 
             <StackLayout
