@@ -39,7 +39,7 @@
                                         <StackLayout Orientation="Horizontal">
                                             <Label Text="{Binding BookedHostelName}" />
                                             <Label Text="{Binding Duration}" />
-                                            <Label Text="Days duration" />
+                                            <Label Text="Days (duration)" />
                                             <Label Text="{Binding CreatedDate}" />
 
                                         </StackLayout>
