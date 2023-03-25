@@ -8,16 +8,20 @@
     <ContentPage.Content>
         <StackLayout VerticalOptions="Center">
 
-            <Label x:Name="hostelLabel" 
+            <StackLayout Margin="10,10,10,10">
+                <Label x:Name="hostelLabel" 
                    FontSize="Large" 
-                   FontAttributes="Bold"
                    Text="{Binding HostelName, StringFormat='Create booking for {0}'}" 
                    Style="{StaticResource HighEmphasis}"
-                   VerticalOptions="Start"
-                   HorizontalOptions="Center"/>
+                   VerticalOptions="Start"/>
 
+                <Label Text="Enter booking details"
+                       Style="{StaticResource MediumEmphasis}"/>
+            </StackLayout>
+
+            
             <Frame VerticalOptions="Center"
-                   Margin="10">
+                   Margin="10,10,10,20">
                 <StackLayout>
                     <Entry Text="{Binding BookingEmail}" 
                            Placeholder="Enter contact email address"
@@ -55,7 +59,8 @@
                 </StackLayout>
             </Frame>
 
-            <StackLayout HorizontalOptions="CenterAndExpand" Orientation="Horizontal">
+            <StackLayout HorizontalOptions="CenterAndExpand" 
+                         Orientation="Horizontal">
                 <Button
                     x:Name="btnCreate"
                     Clicked="btnCreate_Clicked"

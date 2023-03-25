@@ -9,11 +9,15 @@
 
         <StackLayout VerticalOptions="Center">
 
-            <Label Text="{Binding HostelName, StringFormat='View booking for {0}'}"
+            <StackLayout Margin="10,0,10,10">
+                <Label Text="{Binding HostelName, StringFormat='View booking for {0}'}"
                    Style="{StaticResource HighEmphasis}"
-                   FontSize="Large"
-                   FontAttributes="Bold"
-                   HorizontalOptions="Center"/>
+                   FontSize="Large"/>
+
+                <Label Text="Booking details"
+                       Style="{StaticResource MediumEmphasis}"/>
+            </StackLayout>
+
 
             <Frame Margin="10">
                 <StackLayout>
@@ -67,17 +71,17 @@
                 </StackLayout>
             </Frame>
 
-            <Frame Margin="10,0,10,10">
+            <Frame Margin="10,10,10,20">
                 <StackLayout>
-                    <Label Text="{Binding Duration, StringFormat='Stay duration (days): {0}'}"
-                           Style="{StaticResource MediumEmphasis}"
+                    <Label Text="Summary"
                            FontSize="Medium"
-                           FontAttributes="Bold"/>
+                           Style="{StaticResource HighEmphasis}"/>
+
+                    <Label Text="{Binding Duration, StringFormat='Stay duration (days): {0}'}"
+                           Style="{StaticResource MediumEmphasis}"/>
                     
                     <Label Text="{Binding TotalPrice,StringFormat='Total booking price: £{0}'}"
-                           Style="{StaticResource MediumEmphasis}"
-                           FontSize="Medium"
-                           FontAttributes="Bold"/>
+                           Style="{StaticResource MediumEmphasis}"/>
                 </StackLayout>
             </Frame>
 

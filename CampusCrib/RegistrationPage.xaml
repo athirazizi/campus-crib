@@ -16,7 +16,7 @@
                        Style="{StaticResource MediumEmphasis}"/>
             </StackLayout>
             
-            <Frame Margin="0,20,0,20">
+            <Frame Margin="0,20,0,0">
                 <StackLayout>
                     <StackLayout Orientation="Horizontal">
                         <Entry x:Name="txtFirstName" 
@@ -52,7 +52,7 @@
 
                     <StackLayout Margin="3,0,0,0" 
                                  Orientation="Horizontal">
-                        <Label Text="Date of birth" 
+                        <Label Text="Date of birth:" 
                                VerticalOptions="Center"
                                FontSize="Medium"
                                Style="{StaticResource Disabled}"/>

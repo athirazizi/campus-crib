@@ -8,18 +8,21 @@
     <ContentPage.Content>
         <StackLayout Margin="10">
 
-            <Label Text="Your current bookings"
+            <StackLayout>
+                <Label Text="Bookings"
                    FontSize="Large"
                    Style="{StaticResource HighEmphasis}"/>
 
+                <Label Text="Your current bookings"
+                   Style="{StaticResource MediumEmphasis}"/>
+                <StackLayout>
+            </StackLayout>
 
-            <StackLayout>
-             
-                
                 <ListView x:Name="UserBookingsList" 
                           ItemSelected="ListView_ItemSelected" 
                           ItemsSource="{Binding UserBookings}"
-                          HasUnevenRows="True">
+                          HasUnevenRows="True"
+                          Margin="0,10,0,0">
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <ViewCell>
