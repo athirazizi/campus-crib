@@ -48,10 +48,12 @@ namespace CampusCrib
             Hostel hostel1 = new Hostel
             {
                 Name = "Bateman House",
-                Description = "Standard Rooms",
-                Image0 = "bateman",
+                Description = "Standard single rooms",
+                Image0 = "img_bateman",
+                Image1 = "img_hostel_interior_0.jpg",
+                Image2 = "img_hostel_interior_1.jpg",
                 Rating = 4.3,
-                PricePerNight = 25,
+                PricePerNight = 19,
                 Latitude = 51.989440,
                 Longitude = -0.978940
             };
@@ -61,10 +63,12 @@ namespace CampusCrib
             Hostel hostel2 = new Hostel
             {
                 Name = "Harris House",
-                Description = "Ensuite Rooms",
-                Image0 = "harris",
+                Description = "Single ensuite rooms",
+                Image0 = "img_harris",
+                Image1 = "img_hostel_interior_0.jpg",
+                Image2 = "img_hostel_interior_1.jpg",
                 Rating = 4.5,
-                PricePerNight = 25,
+                PricePerNight = 20,
                 Latitude = 51.989440, 
                 Longitude = -0.978940
             };
@@ -74,10 +78,12 @@ namespace CampusCrib
             Hostel hostel3 = new Hostel
             {
                 Name = "Caine House",
-                Description = "Self Contained,ensuite & standard rooms",
-                Image0 = "Caine",
+                Description = "Self contained, ensuite, & standard single rooms",
+                Image0 = "img_caine",
+                Image1 = "img_hostel_interior_0.jpg",
+                Image2 = "img_hostel_interior_1.jpg",
                 Rating = 3.9,
-                PricePerNight = 25,
+                PricePerNight = 29,
                 Latitude = 51.994840, 
                 Longitude = -0.980520
             };
@@ -88,9 +94,11 @@ namespace CampusCrib
             {
                 Name = "Paulley House",
                 Description = "Standard Rooms *REFURBISHED 4FT BEDS*",
-                Image0 = "paulley",
+                Image0 = "img_paulley",
+                Image1 = "img_hostel_interior_0.jpg",
+                Image2 = "img_hostel_interior_1.jpg",
                 Rating = 4.9,
-                PricePerNight = 25,
+                PricePerNight = 19,
                 Latitude = 51.989440, 
                 Longitude = -0.978940
             };
@@ -165,14 +173,14 @@ namespace CampusCrib
         {
             var sortoptions = new List<string>();
             {
-                sortoptions.Add("Name A -> Z");
-                sortoptions.Add("Name Z -> A");
-                sortoptions.Add("Price Low -> High");
-                sortoptions.Add("Price High -> Low");
-                sortoptions.Add("Rating Low -> High");
-                sortoptions.Add("Rating High -> Low");
-                sortoptions.Add("Distance Closest -> Furthest");
-                sortoptions.Add("Distance Furthest -> Closest");
+                sortoptions.Add("Name A → Z");
+                sortoptions.Add("Name Z → A");
+                sortoptions.Add("Price Low → High");
+                sortoptions.Add("Price High → Low");
+                sortoptions.Add("Rating Low → High");
+                sortoptions.Add("Rating High → Low");
+                sortoptions.Add("Distance Closest → Furthest");
+                sortoptions.Add("Distance Furthest → Closest");
             }
             return sortoptions;
         }
@@ -197,49 +205,49 @@ namespace CampusCrib
 
         private void Sort()
         {
-            if (SelectedOption == "Name A -> Z")
+            if (SelectedOption == "Name A → Z")
             {
                 var sortedList = new ObservableCollection<Hostel>(source.OrderBy(x => x.Name).ToList());
 
                 AllHostels = sortedList;
             }
-            else if (SelectedOption == "Name Z -> A")
+            else if (SelectedOption == "Name Z → A")
             {
                 var sortedList = new ObservableCollection<Hostel>(source.OrderByDescending(x => x.Name).ToList());
 
                 AllHostels = sortedList;
             }
-            else if (SelectedOption == "Price Low -> High")
+            else if (SelectedOption == "Price Low → High")
             {
                 var sortedList = new ObservableCollection<Hostel>(source.OrderBy(x => x.PricePerNight).ToList());
 
                 AllHostels = sortedList;
             }
-            else if (SelectedOption == "Price High -> Low")
+            else if (SelectedOption == "Price High → Low")
             {
                 var sortedList = new ObservableCollection<Hostel>(source.OrderByDescending(x => x.PricePerNight).ToList());
 
                 AllHostels = sortedList;
             }
-            else if (SelectedOption == "Rating Low -> High")
+            else if (SelectedOption == "Rating Low → High")
             {
                 var sortedList = new ObservableCollection<Hostel>(source.OrderBy(x => x.Rating).ToList());
 
                 AllHostels = sortedList;
             }
-            else if (SelectedOption == "Rating Low -> High")
+            else if (SelectedOption == "Rating Low → High")
             {
                 var sortedList = new ObservableCollection<Hostel>(source.OrderByDescending(x => x.Rating).ToList());
 
                 AllHostels = sortedList;
             }
-            else if (SelectedOption == "Distance Closest -> Furthest")
+            else if (SelectedOption == "Distance Closest → Furthest")
             {
                 var sortedList = new ObservableCollection<Hostel>(source.OrderBy(x => x.Distance).ToList());
 
                 AllHostels = sortedList;
             }
-            else if (SelectedOption == "Distance Furthest -> Closest")
+            else if (SelectedOption == "Distance Furthest → Closest")
             {
                 var sortedList = new ObservableCollection<Hostel>(source.OrderByDescending(x => x.Distance).ToList());
 

@@ -12,14 +12,14 @@
                 <Entry
                     ClearButtonVisibility="WhileEditing"
                     FontSize="Small"
-                    Placeholder="Search hostels..."
+                    Placeholder="Search hostels"
                     Text="{Binding SearchTerm}"
                     WidthRequest="190" />
                 <Picker
                     Title="Sort hostels"
                     BackgroundColor="#6200EE"
                     FontSize="Small"
-                    HorizontalTextAlignment="Center"
+                    HorizontalTextAlignment="Start"
                     ItemsSource="{Binding SortOptionsList}"
                     SelectedItem="{Binding SelectedOption}"
                     TextColor="White"
@@ -58,36 +58,58 @@
                                     </VisualStateManager.VisualStateGroups>
 
 
-                                    <Frame Margin="0,0,0,10">
+                                    <Frame Margin="0,0,0,10" CornerRadius="20" Padding="10,10,10,10">
                                         <StackLayout>
 
-                                            <Image Source="{Binding Image0}" />
+                                            <Frame Padding="0" CornerRadius="20">
+                                                <Image Source="{Binding Image0}"/>
+                                            </Frame>
+
                                             <StackLayout Orientation="Horizontal">
-                                                <Label
-                                                    FontAttributes="Bold"
-                                                    FontSize="Large"
-                                                    Text="{Binding Name}" />
-                                                <StackLayout
-                                                    Margin="9"
-                                                    HorizontalOptions="EndAndExpand"
-                                                    Orientation="Horizontal">
-                                                    <Label
-                                                        Padding="0"
-                                                        FontAttributes="Bold"
-                                                        FontSize="Small"
-                                                        Text="{Binding Distance}"
-                                                        TextColor="DarkGreen" />
-                                                    <Label
-                                                        Padding="0"
-                                                        FontAttributes="Bold"
-                                                        FontSize="Small"
-                                                        Text="miles away"
-                                                        TextColor="DarkGreen" />
+                                                <Label Text="{Binding Name}"
+                                                       Style="{StaticResource HighEmphasis}"
+                                                       FontSize="Large"
+                                                       FontAttributes="Bold"/>
+
+                                                <StackLayout Orientation="Horizontal" HorizontalOptions="EndAndExpand">
+                                                    <Image Source="ic_star"
+                                                           HorizontalOptions="End"
+                                                           WidthRequest="20"/>
+
+                                                    <Label Text="{Binding Rating}"
+                                                       Style="{StaticResource HighEmphasis}"
+                                                       FontSize="Large"
+                                                       FontAttributes="Bold"
+                                                       VerticalOptions="Center"
+                                                       HorizontalOptions="EndAndExpand"/>
                                                 </StackLayout>
+
                                             </StackLayout>
-                                            <Label Text="{Binding Description}" />
+                                            
+                                            <Label Text="{Binding Description}"
+                                                   Style="{StaticResource MediumEmphasis}"
+                                                   FontAttributes="Bold"/>
+
+                                            <StackLayout Orientation="Horizontal">
+                                                <Label Text="Hostel - "/>
+                                                <Label Text="{Binding Distance}"/>
+                                                <Label Text="miles from campus"/>
+                                            </StackLayout>
+
+                                            <StackLayout Orientation="Horizontal" HorizontalOptions="EndAndExpand">
+                                                <Label Text="From"
+                                                       FontSize="Small"
+                                                       VerticalOptions="Center"/>
+                                                <Label Text="{Binding PricePerNight,StringFormat='£{0}'}"
+                                                       FontSize="Medium"
+                                                       FontAttributes="Bold"
+                                                       VerticalOptions="Center"
+                                                       Style="{StaticResource HighEmphasis}"/>
+                                            </StackLayout>
+                                            
                                         </StackLayout>
                                     </Frame>
+                                    
                                 </StackLayout>
                             </DataTemplate>
                         </CollectionView.ItemTemplate>

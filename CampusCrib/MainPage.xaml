@@ -17,11 +17,11 @@
         <ToolbarItem x:Name="tbLogout" Text="Logout" Order="Secondary" Clicked="tbLogout_Clicked"/>
     </TabbedPage.ToolbarItems>
     
-    <local:BrowsePage Title="Browse" IconImageSource="home"/>
-    <local:BookingsPage Title="Bookings" IconImageSource="menu_book"/>
+    <local:BrowsePage Title="Browse" IconImageSource="ic_home"/>
+    <local:BookingsPage Title="Bookings" IconImageSource="ic_menu_book"/>
     
     <!-- this is the accounts page, but it remains unimplemented.
-        <local:AccountPage Title="Account" IconImageSource="person"/>
+        <local:AccountPage Title="Account" IconImageSource="ic_person"/>
     -->
 
     

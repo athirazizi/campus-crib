@@ -9,8 +9,8 @@
             <ScrollView Margin="10" Orientation="Horizontal">
                 <StackLayout Orientation="Horizontal">
                     <Image Source="{Binding Image0}" WidthRequest="200" />
-                    <Image Source="{Binding Image0}" WidthRequest="200" />
-                    <Image Source="{Binding Image0}" WidthRequest="200" />
+                    <Image Source="{Binding Image1}" WidthRequest="200" />
+                    <Image Source="{Binding Image2}" WidthRequest="200" />
                 </StackLayout>
             </ScrollView>
 
