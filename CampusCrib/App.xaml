@@ -70,8 +70,14 @@
 
             <Style TargetType="Entry">
                 <Setter Property="ClearButtonVisibility" Value="WhileEditing"/>
+                <Setter Property="PlaceholderColor" Value="Gray"/>
+                <Setter Property="TextColor" Value="#212121"/>
             </Style>
-            
+
+            <Style TargetType="DatePicker">
+                <Setter Property="TextColor" Value="Black"/>
+            </Style>
+
         </ResourceDictionary>
     </Application.Resources>
 </Application>

@@ -8,48 +8,47 @@
     <ContentPage.Content>
         <StackLayout Margin="10">
 
-            <Frame Padding="15" CornerRadius="0">
-                <StackLayout
-                    HorizontalOptions="CenterAndExpand"
-                    Orientation="Vertical"
-                    WidthRequest="380">
+            <Label Text="Your current bookings"
+                   FontSize="Large"
+                   Style="{StaticResource HighEmphasis}"/>
 
-                    <StackLayout
-                        HorizontalOptions="Start"
-                        Orientation="Horizontal"
-                        Spacing="15">
-                        <Label
-                            Margin="8"
-                            FontAttributes="Bold"
-                            FontSize="Medium"
-                            HorizontalTextAlignment="Start"
-                            Text="Your current bookings:"
-                            TextColor="Black" />
-                    </StackLayout>
 
-                    <StackLayout>
-                        <ListView
-                            x:Name="UserBookingsList"
-                            ItemSelected="ListView_ItemSelected"
-                            ItemsSource="{Binding UserBookings}">
-                            <ListView.ItemTemplate>
-                                <DataTemplate>
-                                    <ViewCell>
+            <StackLayout>
+             
+                
+                <ListView x:Name="UserBookingsList" 
+                          ItemSelected="ListView_ItemSelected" 
+                          ItemsSource="{Binding UserBookings}"
+                          HasUnevenRows="True">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout>
+                                    <Frame Margin="0,0,0,10" VerticalOptions="Center">
+                                        <StackLayout>
+                                            <Label Text="{Binding BookedHostelName}"
+                                                   Style="{StaticResource HighEmphasis}"
+                                                   FontSize="Medium"
+                                                   FontAttributes="Bold"/>
 
-                                        <StackLayout Orientation="Horizontal">
-                                            <Label Text="{Binding BookedHostelName}" />
-                                            <Label Text="{Binding Duration}" />
-                                            <Label Text="Days (duration)" />
-                                            <Label Text="{Binding CreatedDate}" />
+                                            <Label Text="{Binding Duration, StringFormat='Booking for {0} days'}"
+                                                   Style="{StaticResource MediumEmphasis}"/>
 
+                                            <Label Text="{Binding TotalPrice, StringFormat='Total cost: £{0}'}"
+                                                   Style="{StaticResource MediumEmphasis}"
+                                                   TextColor="{StaticResource Purple500}"
+                                                   FontAttributes="Bold"/>
                                         </StackLayout>
-                                    </ViewCell>
-                                </DataTemplate>
-                            </ListView.ItemTemplate>
-                        </ListView>
-                    </StackLayout>
-                </StackLayout>
-            </Frame>
+                                    </Frame>
+
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
+
+            
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

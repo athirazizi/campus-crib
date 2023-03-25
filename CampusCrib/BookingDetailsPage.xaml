@@ -4,54 +4,91 @@
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     Title="View or Update Booking">
+
     <ContentPage.Content>
 
-        <StackLayout>
+        <StackLayout VerticalOptions="Center">
 
-            <StackLayout Padding="10" Orientation="Horizontal">
-                <Label FontSize="Medium" Text="Viewing booking for" />
-                <Label
-                    x:Name="hostelLabel"
-                    FontSize="Medium"
-                    Text="{Binding HostelName}" />
-                <Label FontSize="Medium" Text=" :" />
-            </StackLayout>
+            <Label Text="{Binding HostelName, StringFormat='View booking for {0}'}"
+                   Style="{StaticResource HighEmphasis}"
+                   FontSize="Large"
+                   FontAttributes="Bold"
+                   HorizontalOptions="Center"/>
 
-            <StackLayout>
-                <Label FontSize="Medium" Text="Contact email address:" />
-                <Entry Text="{Binding BookingEmail}" />
+            <Frame Margin="10">
+                <StackLayout>
 
-                <Label FontSize="Medium" Text="Contact phone number:" />
-                <Entry Text="{Binding BookingPhone}" />
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="Contact email:"
+                               VerticalOptions="Center"
+                               Style="{StaticResource MediumEmphasis}"
+                               FontSize="Medium"/>
+                        
+                        <Entry Text="{Binding BookingEmail}"
+                               HorizontalOptions="FillAndExpand"
+                               Keyboard="Email"/>
+                    </StackLayout>
 
-                <Label FontSize="Medium" Text="Start date" />
-                <DatePicker x:Name="pickerStartDate" Date="{Binding StartDate}" />
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="Contact phone number:"
+                               VerticalOptions="Center"
+                               Style="{StaticResource MediumEmphasis}"
+                               FontSize="Medium"/>
+                        
+                        <Entry Text="{Binding BookingPhone}"
+                               HorizontalOptions="FillAndExpand"
+                               Keyboard="Telephone"/>
+                    </StackLayout>
 
-                <Label FontSize="Medium" Text="End date" />
-                <DatePicker x:Name="pickeEndDate" Date="{Binding EndDate}" />
-            </StackLayout>
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="Start date:"
+                               VerticalOptions="Center"
+                               Style="{StaticResource MediumEmphasis}"
+                               FontSize="Medium"/>
+                        
+                        <DatePicker x:Name="pickerStartDate" 
+                                    Date="{Binding StartDate}"
+                                    HorizontalOptions="FillAndExpand"
+                                    FontSize="Medium"/>
+                    </StackLayout>
 
-            <StackLayout Orientation="Horizontal">
-                <Label FontSize="Medium" Text="Stay duration: " />
-                <Label FontSize="Medium" Text="{Binding Duration}" />
-            </StackLayout>
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="End date:"
+                               VerticalOptions="Center"
+                               Style="{StaticResource MediumEmphasis}"
+                               FontSize="Medium"/>
 
+                        <DatePicker x:Name="pickerEndDate"
+                                    Date="{Binding EndDate}"
+                                    HorizontalOptions="FillAndExpand"
+                                    FontSize="Medium"/>
+                    </StackLayout>
 
-            <StackLayout Orientation="Horizontal">
-                <Label FontSize="Medium" Text="Total booking price: " />
-                <Label FontSize="Medium" Text="{Binding TotalPrice}" />
-            </StackLayout>
+                </StackLayout>
+            </Frame>
 
+            <Frame Margin="10,0,10,10">
+                <StackLayout>
+                    <Label Text="{Binding Duration, StringFormat='Stay duration (days): {0}'}"
+                           Style="{StaticResource MediumEmphasis}"
+                           FontSize="Medium"
+                           FontAttributes="Bold"/>
+                    
+                    <Label Text="{Binding TotalPrice,StringFormat='Total booking price: £{0}'}"
+                           Style="{StaticResource MediumEmphasis}"
+                           FontSize="Medium"
+                           FontAttributes="Bold"/>
+                </StackLayout>
+            </Frame>
 
             <StackLayout HorizontalOptions="CenterAndExpand" Orientation="Horizontal">
                 <Button
                     x:Name="btnUpdate"
-                    BackgroundColor="Green"
                     Clicked="btnUpdate_Clicked"
                     Text="Update with changes" />
                 <Button
                     x:Name="btnDelete"
-                    BackgroundColor="Red"
+                    BackgroundColor="{StaticResource Cancel}"
                     Clicked="btnDelete_Clicked"
                     Text="Delete booking" />
             </StackLayout>

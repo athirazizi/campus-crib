@@ -54,7 +54,8 @@
                                  Orientation="Horizontal">
                         <Label Text="Date of birth" 
                                VerticalOptions="Center"
-                               FontSize="Medium"/>
+                               FontSize="Medium"
+                               Style="{StaticResource Disabled}"/>
 
                         <DatePicker HorizontalOptions="FillAndExpand"
                                     Opacity="0.87"

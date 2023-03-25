@@ -19,31 +19,35 @@
                    Margin="30">
                 <StackLayout>
                     <Entry Text="{Binding BookingEmail}" 
-                   Placeholder="Enter contact email address"/>
+                           Placeholder="Enter contact email address"
+                           Keyboard="Email"/>
 
                     <Entry Text="{Binding BookingPhone}" 
-                   Placeholder="Enter contact phone number"/>
+                           Placeholder="Enter contact phone number"
+                           Keyboard="Telephone"/>
 
                     <StackLayout Orientation="Horizontal">
-                        <Label Text="Start date" 
+                        <Label Text="Start date:" 
                                FontSize="Medium" 
-                               VerticalOptions="Center"/>
+                               VerticalOptions="Center"
+                               Style="{StaticResource MediumEmphasis}"/>
                         <!--  date format is MM/DD/YY -->
                         <DatePicker x:Name="pickerStartDate" 
                                     Date="{Binding StartDate}" 
-                                    MinimumDate="01/01/2020" 
-                                    MaximumDate="12/31/2022"
+                                    MinimumDate="01/01/2023" 
+                                    MaximumDate="06/01/2023"
                                     HorizontalOptions="FillAndExpand"/>
                     </StackLayout>
 
                     <StackLayout Orientation="Horizontal">
                         <Label FontSize="Medium" 
-                               Text="End date"
-                               VerticalOptions="Center"/>
+                               Text="End date:"
+                               VerticalOptions="Center"
+                               Style="{StaticResource MediumEmphasis}"/>
                         <DatePicker x:Name="pickeEndDate" 
                                     Date="{Binding EndDate}" 
-                                    MinimumDate="01/01/2022" 
-                                    MaximumDate="12/31/2024"
+                                    MinimumDate="01/02/2023" 
+                                    MaximumDate="06/01/2023"
                                     HorizontalOptions="FillAndExpand"/>
                     </StackLayout>
 

@@ -91,15 +91,15 @@
                                                    FontAttributes="Bold"/>
 
                                             <StackLayout Orientation="Horizontal">
-                                                <Label Text="Hostel - "/>
-                                                <Label Text="{Binding Distance}"/>
-                                                <Label Text="miles from campus"/>
+                                                <Label Text="{Binding Distance,StringFormat='Hostel - {0} miles from campus'}"
+                                                       Style="{StaticResource MediumEmphasis}"/>
                                             </StackLayout>
 
                                             <StackLayout Orientation="Horizontal" HorizontalOptions="EndAndExpand">
                                                 <Label Text="From"
                                                        FontSize="Small"
-                                                       VerticalOptions="Center"/>
+                                                       VerticalOptions="Center"
+                                                       Style="{StaticResource MediumEmphasis}"/>
                                                 <Label Text="{Binding PricePerNight,StringFormat='£{0}'}"
                                                        FontSize="Medium"
                                                        FontAttributes="Bold"
