@@ -19,7 +19,7 @@ namespace CampusCrib
 
         public List<string> SortOptionsList { get; set; }
 
-        // Fixing the user's location to central London for now. Eventually use geolocation for this value
+        // Fixing the user's location to central London for now.
         private Location userLocation = new Location(51.509865, -0.118092);
 
         private ObservableCollection<Hostel> allhostels;
@@ -49,7 +49,7 @@ namespace CampusCrib
             {
                 Name = "Bateman House",
                 Description = "Standard single rooms",
-                Image0 = "img_bateman",
+                Image0 = "img_bateman.jpg",
                 Image1 = "img_hostel_interior_0.jpg",
                 Image2 = "img_hostel_interior_1.jpg",
                 Rating = 4.3,
@@ -64,7 +64,7 @@ namespace CampusCrib
             {
                 Name = "Harris House",
                 Description = "Single ensuite rooms",
-                Image0 = "img_harris",
+                Image0 = "img_harris.jpg",
                 Image1 = "img_hostel_interior_0.jpg",
                 Image2 = "img_hostel_interior_1.jpg",
                 Rating = 4.5,
@@ -79,7 +79,7 @@ namespace CampusCrib
             {
                 Name = "Caine House",
                 Description = "Self contained, ensuite, & standard single rooms",
-                Image0 = "img_caine",
+                Image0 = "img_caine.jpg",
                 Image1 = "img_hostel_interior_0.jpg",
                 Image2 = "img_hostel_interior_1.jpg",
                 Rating = 3.9,
@@ -94,7 +94,7 @@ namespace CampusCrib
             {
                 Name = "Paulley House",
                 Description = "Standard Rooms *REFURBISHED 4FT BEDS*",
-                Image0 = "img_paulley",
+                Image0 = "img_paulley.jpg",
                 Image1 = "img_hostel_interior_0.jpg",
                 Image2 = "img_hostel_interior_1.jpg",
                 Rating = 4.9,

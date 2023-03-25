@@ -26,8 +26,8 @@ namespace CampusCrib
 
         private async void tbLogout_Clicked(object sender, EventArgs e)
         {
-            // Send user back to login page, bugfix for booking page appearing in nav stack
-            await Navigation.PushAsync(new LoginPage());
+            // User can still navigate backwards into the app's pages after logout is tapped, clear the nav stack then create the new LoginPage
+            await Navigation.PopToRootAsync();
         }
     }
 }

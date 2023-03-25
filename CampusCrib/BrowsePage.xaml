@@ -9,23 +9,31 @@
 
         <StackLayout Margin="10">
             <StackLayout HorizontalOptions="CenterAndExpand" Orientation="Horizontal">
-                <Entry
-                    ClearButtonVisibility="WhileEditing"
-                    FontSize="Small"
-                    Placeholder="Search hostels"
-                    Text="{Binding SearchTerm}"
-                    WidthRequest="190" />
-                <Picker
-                    Title="Sort hostels"
-                    BackgroundColor="#6200EE"
-                    FontSize="Small"
-                    HorizontalTextAlignment="Start"
-                    ItemsSource="{Binding SortOptionsList}"
-                    SelectedItem="{Binding SelectedOption}"
-                    TextColor="White"
-                    TitleColor="white"
-                    WidthRequest="190" />
-
+                <Frame
+                    Padding="2"
+                    BackgroundColor="LightGray"
+                    CornerRadius="10">
+                    <Entry
+                        ClearButtonVisibility="WhileEditing"
+                        FontSize="Small"
+                        Placeholder="Search hostels..."
+                        PlaceholderColor="Black"
+                        Text="{Binding SearchTerm}"
+                        WidthRequest="190" />
+                </Frame>
+                <Frame
+                    Padding="0"
+                    BackgroundColor="LightGray"
+                    CornerRadius="10">
+                    <Picker
+                        Title="Sort hostels by..."
+                        FontSize="Small"
+                        HorizontalTextAlignment="Start"
+                        ItemsSource="{Binding SortOptionsList}"
+                        SelectedItem="{Binding SelectedOption}"
+                        TitleColor="black"
+                        WidthRequest="190" />
+                </Frame>
             </StackLayout>
 
             <RefreshView
@@ -39,12 +47,71 @@
                         ItemsSource="{Binding AllHostels}"
                         SelectionChanged="CollectionView_SelectionChanged"
                         SelectionMode="Single">
-                        
+
                         <CollectionView.ItemTemplate>
                             <DataTemplate>
                                 <StackLayout>
+                                    <Frame
+                                        Margin="0,0,0,10"
+                                        Padding="10,10,10,10"
+                                        CornerRadius="20">
+                                        <StackLayout>
 
-                                    <!-- change selection colour -->
+                                            <Frame Padding="0" CornerRadius="20">
+                                                <Image Source="{Binding Image0}" />
+                                            </Frame>
+
+                                            <StackLayout Orientation="Horizontal">
+                                                <Label
+                                                    FontAttributes="Bold"
+                                                    FontSize="Large"
+                                                    Style="{StaticResource HighEmphasis}"
+                                                    Text="{Binding Name}" />
+
+                                                <StackLayout HorizontalOptions="EndAndExpand" Orientation="Horizontal">
+                                                    <Image
+                                                        HorizontalOptions="End"
+                                                        Source="ic_star"
+                                                        WidthRequest="20" />
+
+                                                    <Label
+                                                        FontAttributes="Bold"
+                                                        FontSize="Large"
+                                                        HorizontalOptions="EndAndExpand"
+                                                        Style="{StaticResource HighEmphasis}"
+                                                        Text="{Binding Rating}"
+                                                        VerticalOptions="Center" />
+                                                </StackLayout>
+
+                                            </StackLayout>
+
+                                            <Label
+                                                FontAttributes="Bold"
+                                                Style="{StaticResource MediumEmphasis}"
+                                                Text="{Binding Description}" />
+
+                                            <StackLayout Orientation="Horizontal">
+                                                <Label Style="{StaticResource MediumEmphasis}" Text="{Binding Distance, StringFormat='Hostel - {0} miles from campus'}" />
+                                            </StackLayout>
+
+                                            <StackLayout HorizontalOptions="EndAndExpand" Orientation="Horizontal">
+                                                <Label
+                                                    FontSize="Small"
+                                                    Style="{StaticResource MediumEmphasis}"
+                                                    Text="From"
+                                                    VerticalOptions="Center" />
+                                                <Label
+                                                    FontAttributes="Bold"
+                                                    FontSize="Medium"
+                                                    Style="{StaticResource HighEmphasis}"
+                                                    Text="{Binding PricePerNight, StringFormat='£{0}'}"
+                                                    VerticalOptions="Center" />
+                                            </StackLayout>
+
+                                        </StackLayout>
+                                    </Frame>
+
+                                    <!--  change selection colour  -->
 
                                     <VisualStateManager.VisualStateGroups>
                                         <VisualStateGroup Name="CommonStates">
@@ -56,60 +123,6 @@
                                             </VisualState>
                                         </VisualStateGroup>
                                     </VisualStateManager.VisualStateGroups>
-
-
-                                    <Frame Margin="0,0,0,10" CornerRadius="20" Padding="10,10,10,10">
-                                        <StackLayout>
-
-                                            <Frame Padding="0" CornerRadius="20">
-                                                <Image Source="{Binding Image0}"/>
-                                            </Frame>
-
-                                            <StackLayout Orientation="Horizontal">
-                                                <Label Text="{Binding Name}"
-                                                       Style="{StaticResource HighEmphasis}"
-                                                       FontSize="Large"
-                                                       FontAttributes="Bold"/>
-
-                                                <StackLayout Orientation="Horizontal" HorizontalOptions="EndAndExpand">
-                                                    <Image Source="ic_star"
-                                                           HorizontalOptions="End"
-                                                           WidthRequest="20"/>
-
-                                                    <Label Text="{Binding Rating}"
-                                                       Style="{StaticResource HighEmphasis}"
-                                                       FontSize="Large"
-                                                       FontAttributes="Bold"
-                                                       VerticalOptions="Center"
-                                                       HorizontalOptions="EndAndExpand"/>
-                                                </StackLayout>
-
-                                            </StackLayout>
-                                            
-                                            <Label Text="{Binding Description}"
-                                                   Style="{StaticResource MediumEmphasis}"
-                                                   FontAttributes="Bold"/>
-
-                                            <StackLayout Orientation="Horizontal">
-                                                <Label Text="{Binding Distance,StringFormat='Hostel - {0} miles from campus'}"
-                                                       Style="{StaticResource MediumEmphasis}"/>
-                                            </StackLayout>
-
-                                            <StackLayout Orientation="Horizontal" HorizontalOptions="EndAndExpand">
-                                                <Label Text="From"
-                                                       FontSize="Small"
-                                                       VerticalOptions="Center"
-                                                       Style="{StaticResource MediumEmphasis}"/>
-                                                <Label Text="{Binding PricePerNight,StringFormat='£{0}'}"
-                                                       FontSize="Medium"
-                                                       FontAttributes="Bold"
-                                                       VerticalOptions="Center"
-                                                       Style="{StaticResource HighEmphasis}"/>
-                                            </StackLayout>
-                                            
-                                        </StackLayout>
-                                    </Frame>
-                                    
                                 </StackLayout>
                             </DataTemplate>
                         </CollectionView.ItemTemplate>

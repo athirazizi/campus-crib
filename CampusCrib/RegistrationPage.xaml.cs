@@ -93,12 +93,13 @@ namespace CampusCrib
                 txtConfirmPassword.TextColor = Color.Black;
             }
 
-            // if the username is not empty + the password is not empty + the passwords match
+            // if the username is not empty + if the user has provided their email & phone + if the password is not empty + the passwords match
             // store user data inside the database.
 
             if (
                 !(string.IsNullOrEmpty(txtPassword.Text)) && !(string.IsNullOrWhiteSpace(txtPassword.Text))
                 && !(string.IsNullOrEmpty(txtUsername.Text)) && !(string.IsNullOrWhiteSpace(txtUsername.Text))
+                && !(string.IsNullOrEmpty(txtEmail.Text)) && !(string.IsNullOrEmpty(txtPhone.Text))
                 && (txtPassword.Text == txtConfirmPassword.Text)
                 )
             {
@@ -115,12 +116,12 @@ namespace CampusCrib
 
                 newDBInstance.AddUser(newUser);
 
-                await DisplayAlert("Success", "Registration successful for username." + txtUsername.Text, "Go to Login");
+                await DisplayAlert("Success", "Registration successful for new user: " + txtUsername.Text, "Go to Login");
                 await Navigation.PushAsync(new LoginPage());
             }
             else
             {
-                await DisplayAlert("Error", "Passwords do not match. Try again.", "OK");
+                await DisplayAlert("Error", "Passwords do not match or form is incomplete. Try again.", "OK");
             }
         }
     }

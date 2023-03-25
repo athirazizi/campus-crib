@@ -126,7 +126,9 @@ namespace CampusCrib
 
             // Need to pull through the selected hostel object and validate the user's choices on creation
 
-            if (EndDate > startdate && BookingEmail != "" && BookingPhone != "") {
+            // Validate dates and contact detail inputs
+
+            if (EndDate > startdate && !(string.IsNullOrEmpty(BookingEmail)) && !(string.IsNullOrEmpty(BookingPhone))) {
                 Booking newbooking = new Booking();
                 newbooking.StartDate = StartDate;
                 newbooking.EndDate = EndDate;
@@ -152,7 +154,7 @@ namespace CampusCrib
 
             else
             {
-                Application.Current.MainPage.DisplayAlert("Error", "Dates or contact details are invalid, please try again", "OK");
+                Application.Current.MainPage.DisplayAlert("Error", "Invalid dates or contact details are empty, please try again", "OK");
             }
 
 

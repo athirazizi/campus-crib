@@ -49,7 +49,7 @@
                                Text="End date:"
                                VerticalOptions="Center"
                                Style="{StaticResource MediumEmphasis}"/>
-                        <DatePicker x:Name="pickeEndDate" 
+                        <DatePicker x:Name="pickerEndDate" 
                                     Date="{Binding EndDate}" 
                                     MinimumDate="01/02/2023" 
                                     MaximumDate="06/01/2023"

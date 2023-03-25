@@ -142,7 +142,7 @@ namespace CampusCrib
 
         public void UpdateBooking()
         {
-            if (EndDate > startdate && BookingEmail != "" && BookingPhone != "")
+            if (EndDate > startdate && !(string.IsNullOrEmpty(BookingEmail)) && !(string.IsNullOrEmpty(BookingPhone)))
             {
                 Booking updatedBooking = new Booking();
 
@@ -168,7 +168,7 @@ namespace CampusCrib
             }
             else
             {
-                Application.Current.MainPage.DisplayAlert("Error", "Dates or contact details are invalid, please try again", "OK");
+                Application.Current.MainPage.DisplayAlert("Error", "Invalid dates or contact details are empty, please try again", "OK");
             }
         }
 
