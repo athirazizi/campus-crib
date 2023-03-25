@@ -4,66 +4,90 @@
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     Title="{Binding Name}">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style TargetType="Label">
+                <Setter Property="TextColor" Value="Black"/>
+                <Setter Property="Opacity" Value="0.87"/>
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    
     <ContentPage.Content>
         <StackLayout>
+            
+            <!-- display hostel images -->
             <ScrollView Margin="10" Orientation="Horizontal">
                 <StackLayout Orientation="Horizontal">
-                    <Image Source="{Binding Image0}" WidthRequest="200" />
-                    <Image Source="{Binding Image1}" WidthRequest="200" />
-                    <Image Source="{Binding Image2}" WidthRequest="200" />
+                    <Image Source="{Binding Image0}" WidthRequest="250" />
+                    <Image Source="{Binding Image1}" WidthRequest="250" />
+                    <Image Source="{Binding Image2}" WidthRequest="250" />
                 </StackLayout>
             </ScrollView>
 
+            <!-- display hostel details -->
             <StackLayout Margin="10,0,10,0">
                 <StackLayout Orientation="Horizontal">
-                    <Label
-                        FontAttributes="Bold"
-                        FontSize="Large"
-                        Text="{Binding Name}" />
-                    <Label
-                        FontAttributes="Bold"
-                        FontSize="Large"
-                        HorizontalOptions="EndAndExpand"
-                        Text="🌟" />
-                    <Label
-                        FontAttributes="Bold"
-                        FontSize="Large"
-                        Text="{Binding Rating}" />
+                    
+                    <Label Text="{Binding Name}"
+                           FontAttributes="Bold"
+                           FontSize="Large"
+                           Style="{StaticResource HighEmphasis}"/>
+
+
+                    <Image Source="ic_star"
+                           HorizontalOptions="EndAndExpand"
+                           WidthRequest="20"/>
+                    
+                    <Label FontAttributes="Bold" 
+                           FontSize="Large" 
+                           Text="{Binding Rating}"
+                           Style="{StaticResource HighEmphasis}"/>
                 </StackLayout>
 
                 <StackLayout Orientation="Horizontal">
-                    <Label Text="📍" />
-                    <Label Text="Buckingham" />
+                    <Image Source="ic_location" WidthRequest="20"/>
+                    <Label Text="Buckingham" Style="{StaticResource HighEmphasis}"/>
                 </StackLayout>
 
+                <Label Text="About"
+                       FontAttributes="Bold" 
+                       FontSize="Medium"
+                       Style="{StaticResource HighEmphasis}"/>
+                
+                <Label Text="{Binding Description}"
+                       Style="{StaticResource HighEmphasis}"/>
 
-                <Label
-                    FontAttributes="Bold"
-                    FontSize="Medium"
-                    Text="About" />
-                <Label Text="{Binding Description}" />
-
-                <Label
-                    FontAttributes="Bold"
-                    FontSize="Medium"
-                    Text="Room features" />
+                <Label Text="Room features" 
+                       FontAttributes="Bold" 
+                       FontSize="Medium"
+                       Style="{StaticResource HighEmphasis}"/>
                 <ScrollView
                     Margin="10"
                     HorizontalScrollBarVisibility="Never"
                     Orientation="Horizontal">
                     <StackLayout Orientation="Horizontal">
-                        <Label Text="📶" />
-                        <Label Text="Free Internet Access" />
-                        <Label Text="📶" />
-                        <Label Text="Free WiFi" />
-                        <Label Text="♨️" />
-                        <Label Text="Heater" />
-                        <Label Text="🛡️" />
-                        <Label Text="Securtiy" />
-                        <Label Text="🍴" />
-                        <Label Text="Kitchen" />
-                        <Label Text="💧" />
-                        <Label Text="Laundry" />
+                        <Label Text="📶"/>
+                        <Label Text="WiFi"/>
+                        
+                        <Label Text="♨️"/>
+                        <Label Text="Heating"/>
+                        
+                        <Label Text="🛡️"/>
+                        <Label Text="Security"/>
+
+                        <Label Text="💬"/>
+                        <Label Text="Intercom"/>
+
+                        <Label Text="🍴"/>
+                        <Label Text="Kitchen"/>
+
+                        <Label Text="🚘"/>
+                        <Label Text="Parking"/>
+
+                        <Label Text="♿"/>
+                        <Label Text="Disabled access"/>
                     </StackLayout>
                 </ScrollView>
 

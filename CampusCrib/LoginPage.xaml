@@ -53,8 +53,10 @@
                 
             </Label>
 
-            <Label Margin="0,20,0,0" Text="Note - 'admin / password' are the default credentials."
-                   Style="{StaticResource Disabled}"/>
+
+            <!--             <Label Margin="0,20,0,0" Text="Note - 'admin / password' are the default credentials."
+                   Style="{StaticResource Disabled}"/> -->
+
             
         </StackLayout>
     </ContentPage.Content>
