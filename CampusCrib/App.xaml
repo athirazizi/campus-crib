@@ -30,6 +30,10 @@
             <Color x:Key="Error">
                 #B00020
             </Color>
+
+            <Color x:Key="Cancel">
+                #FC253A
+            </Color>
             
             <!-- Material design text legibility -->
             <!-- https://m2.material.io/design/color/text-legibility.html#text-backgrounds -->

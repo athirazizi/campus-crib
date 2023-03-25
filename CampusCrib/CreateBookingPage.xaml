@@ -4,50 +4,63 @@
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     Title="Create Booking">
+    
     <ContentPage.Content>
+        <StackLayout VerticalOptions="Center">
 
-        <StackLayout>
+            <Label x:Name="hostelLabel" 
+                   FontSize="Large" 
+                   Text="{Binding HostelName, StringFormat='Create booking for {0}'}" 
+                   Style="{StaticResource HighEmphasis}"
+                   VerticalOptions="Start"
+                   HorizontalOptions="Center"/>
 
-            <StackLayout Padding="10" Orientation="Horizontal">
-                <Label FontSize="Medium" Text="Create booking for" />
-                <Label
-                    x:Name="hostelLabel"
-                    FontSize="Medium"
-                    Text="{Binding HostelName}" />
-                <Label FontSize="Medium" Text=" :" />
-            </StackLayout>
+            <Frame VerticalOptions="Center"
+                   Margin="30">
+                <StackLayout>
+                    <Entry Text="{Binding BookingEmail}" 
+                   Placeholder="Enter contact email address"/>
 
-            <StackLayout>
-                <Label FontSize="Medium" Text="Contact email address:" />
-                <Entry Text="{Binding BookingEmail}" />
+                    <Entry Text="{Binding BookingPhone}" 
+                   Placeholder="Enter contact phone number"/>
 
-                <Label FontSize="Medium" Text="Contact phone number:" />
-                <Entry Text="{Binding BookingPhone}" />
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="Start date" 
+                               FontSize="Medium" 
+                               VerticalOptions="Center"/>
+                        <!--  date format is MM/DD/YY -->
+                        <DatePicker x:Name="pickerStartDate" 
+                                    Date="{Binding StartDate}" 
+                                    MinimumDate="01/01/2020" 
+                                    MaximumDate="12/31/2022"
+                                    HorizontalOptions="FillAndExpand"/>
+                    </StackLayout>
 
-                <Label FontSize="Medium" Text="Start date" />
-                <!--  date format is MM/DD/YY -->
-                <DatePicker x:Name="pickerStartDate" Date="{Binding StartDate}" MinimumDate="01/01/2020" MaximumDate="12/31/2022"/>
+                    <StackLayout Orientation="Horizontal">
+                        <Label FontSize="Medium" 
+                               Text="End date"
+                               VerticalOptions="Center"/>
+                        <DatePicker x:Name="pickeEndDate" 
+                                    Date="{Binding EndDate}" 
+                                    MinimumDate="01/01/2022" 
+                                    MaximumDate="12/31/2024"
+                                    HorizontalOptions="FillAndExpand"/>
+                    </StackLayout>
 
-                <Label FontSize="Medium" Text="End date" />
-                <DatePicker x:Name="pickeEndDate" Date="{Binding EndDate}" MinimumDate="01/01/2022" MaximumDate="12/31/2024"/>
-
-                
-            </StackLayout>
+                </StackLayout>
+            </Frame>
 
             <StackLayout HorizontalOptions="CenterAndExpand" Orientation="Horizontal">
                 <Button
                     x:Name="btnCreate"
-                    BackgroundColor="Green"
                     Clicked="btnCreate_Clicked"
                     Text="Create booking" />
                 <Button
                     x:Name="btnCancel"
-                    BackgroundColor="Red"
+                    BackgroundColor="{StaticResource Cancel}"
                     Clicked="btnCancel_Clicked"
                     Text="Cancel booking" />
             </StackLayout>
-
-
 
         </StackLayout>
     </ContentPage.Content>
