@@ -10,13 +10,14 @@
 
             <Label x:Name="hostelLabel" 
                    FontSize="Large" 
+                   FontAttributes="Bold"
                    Text="{Binding HostelName, StringFormat='Create booking for {0}'}" 
                    Style="{StaticResource HighEmphasis}"
                    VerticalOptions="Start"
                    HorizontalOptions="Center"/>
 
             <Frame VerticalOptions="Center"
-                   Margin="30">
+                   Margin="10">
                 <StackLayout>
                     <Entry Text="{Binding BookingEmail}" 
                            Placeholder="Enter contact email address"
