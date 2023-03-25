@@ -2,51 +2,73 @@
 <ContentPage
     x:Class="CampusCrib.RegistrationPage"
     xmlns="http://xamarin.com/schemas/2014/forms"
-    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
-    <ContentPage.Content>
-        <StackLayout Padding="5" VerticalOptions="CenterAndExpand">
-            <StackLayout>
-                <Label
-                    FontAttributes="Bold"
-                    FontSize="34"
-                    HorizontalOptions="CenterAndExpand"
-                    Text="Registration Form"
-                    TextColor="#FF6200EE"
-                    VerticalOptions="Start" />
-            </StackLayout>
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    Title="Registration form">
 
-            <StackLayout Orientation="Horizontal">
-                <Entry x:Name="txtFirstName" Placeholder="First Name" />
-                <Entry x:Name="txtLastName" Placeholder="Last Name" />
+    <ContentPage.Content>
+        <StackLayout Margin="30,0,30,0" VerticalOptions="Center">
+            
+            <StackLayout>
+                <Label Text="Create your CampusCrib account"
+                       FontSize="Large"
+                       Style="{StaticResource HighEmphasis}"/>
+                <Label Text="Your hostel booking adventures await"
+                       Style="{StaticResource MediumEmphasis}"/>
             </StackLayout>
-            <Entry x:Name="txtUsername" Placeholder="Username" />
-            <Entry x:Name="txtEmail" Placeholder="Email" />
-            <Entry x:Name="txtPhone" Placeholder="Phone Number" />
-            <Entry
-                x:Name="txtPassword"
-                IsPassword="True"
-                Placeholder="Password" />
-            <Entry
-                x:Name="txtConfirmPassword"
-                IsPassword="True"
-                Placeholder="Confirm Password" />
-            <Label Text="Date Of Birth" />
-            <DatePicker />
-            <Label Text="Address" />
-            <Editor />
-            <StackLayout Orientation="Horizontal">
-                <Label Text="Save Password" />
-                <Switch IsToggled="False" />
-            </StackLayout>
-            <Button
-                BackgroundColor="#6200EE"
-                BorderColor="#6200EE"
-                BorderWidth="1.5"
-                Clicked="SignUp_Clicked"
-                CornerRadius="50"
-                Text="Sign Up"
-                TextColor="White"
-                VerticalOptions="Center" />
+            
+            <Frame Margin="0,20,0,20">
+                <StackLayout>
+                    <StackLayout Orientation="Horizontal">
+                        <Entry x:Name="txtFirstName" 
+                               Placeholder="First name" 
+                               HorizontalOptions="FillAndExpand"/>
+                        
+                        <Entry x:Name="txtLastName" 
+                               Placeholder="Last name" 
+                               HorizontalOptions="FillAndExpand"/>
+                    </StackLayout>
+                    
+                    <Entry x:Name="txtUsername" Placeholder="Username"/>
+
+                    <StackLayout Orientation="Horizontal">
+                        <Entry x:Name="txtPassword" 
+                               Placeholder="Password" 
+                               IsPassword="True"
+                               HorizontalOptions="FillAndExpand"/>
+
+                        <Entry x:Name="txtConfirmPassword" 
+                               Placeholder="Confirm" 
+                               IsPassword="True"
+                               HorizontalOptions="FillAndExpand"/>
+                    </StackLayout>
+
+                    <Entry x:Name="txtEmail" 
+                           Placeholder="Email"
+                           Keyboard="Email"/>
+                        
+                    <Entry x:Name="txtPhone" 
+                           Placeholder="Phone number"
+                           Keyboard="Telephone"/>
+
+                    <StackLayout Margin="3,0,0,0" 
+                                 Orientation="Horizontal">
+                        <Label Text="Date of birth" 
+                               VerticalOptions="Center"
+                               FontSize="Medium"/>
+
+                        <DatePicker HorizontalOptions="FillAndExpand"
+                                    Opacity="0.87"
+                                    MinimumDate="01/01/1970"/>
+                    </StackLayout>
+
+                    <Button Clicked="SignUp_Clicked" 
+                            Text="Register"
+                            HorizontalOptions="FillAndExpand"/>
+                            
+                </StackLayout>
+            </Frame>
+
+
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

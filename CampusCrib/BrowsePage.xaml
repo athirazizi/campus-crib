@@ -51,7 +51,7 @@
                                             <VisualState Name="Normal" />
                                             <VisualState Name="Selected">
                                                 <VisualState.Setters>
-                                                    <Setter Property="BackgroundColor" Value="lightgray" />
+                                                    <Setter Property="BackgroundColor" Value="#FAFAFA" />
                                                 </VisualState.Setters>
                                             </VisualState>
                                         </VisualStateGroup>

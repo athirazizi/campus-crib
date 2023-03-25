@@ -26,6 +26,11 @@
                 #EEEEEE
             </Color>
             
+            <!-- Error colour -->
+            <Color x:Key="Error">
+                #B00020
+            </Color>
+            
             <!-- Material design text legibility -->
             <!-- https://m2.material.io/design/color/text-legibility.html#text-backgrounds -->
             <Style x:Key="HighEmphasis" TargetType="Label">
@@ -58,6 +63,11 @@
                 <Setter Property="HorizontalOptions" Value="Center"/>
                 <Setter Property="CornerRadius" Value="50"/>
             </Style>
+
+            <Style TargetType="Entry">
+                <Setter Property="ClearButtonVisibility" Value="WhileEditing"/>
+            </Style>
+            
         </ResourceDictionary>
     </Application.Resources>
 </Application>
